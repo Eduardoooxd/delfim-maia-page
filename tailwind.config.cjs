@@ -70,7 +70,6 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        "noisy-grid-bg": "url('/src/assets/images/noisy_grid.png')",
         "page-bg": "url('/src/assets/images/background.gif')",
       },
       fontFamily: {
