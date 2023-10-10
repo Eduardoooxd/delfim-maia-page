@@ -1,4 +1,18 @@
+---
+import LogoImage from "@/images/logo.png";
+import { Image } from "astro:assets";
+---
 
-<>
-
-<>
+<section class="h-full p-8 sm:p-20 grid grid-cols-2 grid-rows-2">
+  <Image src={LogoImage} alt="Image do logo de Delfim Maia" />
+  <div></div>
+  <div></div>
+  <section class="flex justify-end items-center">
+    <p
+      class="text-right text-balance text-2xl w-full max-w-xl text-delfim-primary"
+    >
+      Mais de 40 anos a estudar o direito, a lutar pela justiça e criar relações
+      de confiança!
+    </p>
+  </section>
+</section>

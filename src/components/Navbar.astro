@@ -1,1 +1,70 @@
-<nav></nav>
+---
+import LogoImage from "@/images/logo.png";
+import { Image } from "astro:assets";
+
+const navlinks: {
+  title: string;
+  href: string;
+}[] = [
+  {
+    title: "Quem Somos",
+    href: "",
+  },
+  {
+    title: "Equipa",
+    href: "",
+  },
+  {
+    title: "Áreas de atuação",
+    href: "",
+  },
+  {
+    title: "Contactos",
+    href: "",
+  },
+];
+---
+
+<nav
+  id="primary-navigation-bar"
+  class="fixed top-0 left-0 w-full bg-white py-2 flex justify-between gap-4 items-center opacity-0 transition-opacity duration-300 ease-in"
+>
+  <section class="px-8">
+    <Image
+      width={70}
+      height={70}
+      src={LogoImage}
+      alt="Image do logo de Delfim Maia"
+    />
+  </section>
+
+  <section class="flex-col gap-1 hidden sm:flex">
+    <section class="flex gap-8 pr-8">
+      {
+        navlinks.map(({ title, href }) => (
+          <a
+            class="capitalize font-bold text-sm sm:text-base"
+            target="_blank"
+            href={href}
+          >
+            {title}
+          </a>
+        ))
+      }
+    </section>
+    <div class="border-b-4 border-navbar-border"></div>
+  </section>
+</nav>
+
+<script is:inline>
+window?.addEventListener("scroll", (event) => {
+  const navbar = document.querySelector("#primary-navigation-bar");
+  const { scrollY, screenY } = window;
+
+  if (screenY > 500 || scrollY > 500) {
+    navbar?.classList.replace("opacity-0", "opacity-100");
+  } else {
+    navbar?.classList.replace("opacity-100", "opacity-0");
+  }
+});
+</script>

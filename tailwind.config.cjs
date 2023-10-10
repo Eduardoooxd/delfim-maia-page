@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -12,11 +14,13 @@ module.exports = {
     },
     extend: {
       colors: {
+        "delfim-primary": "hsl(var(--delfim-primary))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "navbar-border": "hsl(var(--navbar-border))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -66,7 +70,11 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        "noisy-grid-bg": "url('/images/noisy_grid')",
+        "noisy-grid-bg": "url('/src/assets/images/noisy_grid.png')",
+        "page-bg": "url('/src/assets/images/background.gif')",
+      },
+      fontFamily: {
+        sans: ["Garet", ...defaultTheme.fontFamily.sans],
       },
     },
   },

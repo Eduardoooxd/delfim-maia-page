@@ -1,11 +1,13 @@
 ---
+import Navbar from "@/components/Navbar.astro";
+
 interface Props {
   title?: string;
 }
 ---
 
 <!doctype html>
-<html lang="pt">
+<html class="h-full" lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -14,7 +16,8 @@ interface Props {
     <meta name="generator" content={Astro.generator} />
     <title>Delfim Maia</title>
   </head>
-  <body class="min-h-screen bg-noisy-grid-bg">
+  <body class="min-h-screen h-full bg-page-bg">
+    <Navbar />
     <slot />
   </body>
 </html>
