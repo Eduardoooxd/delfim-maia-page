@@ -1,10 +1,15 @@
 ---
-import LogoImage from "@/images/logo.png";
+import LogoImage from "@/images/logo.webp";
 import { Image } from "astro:assets";
 ---
 
 <section class="min-h-screen h-full p-8 sm:p-20 grid grid-cols-2 grid-rows-2">
-  <Image src={LogoImage} alt="Image do logo de Delfim Maia" />
+  <Image
+    width={300}
+    height={234}
+    src={LogoImage}
+    alt="Image do logo de Delfim Maia"
+  />
   <div></div>
   <div class="hidden sm:block"></div>
   <section class="flex justify-end items-center col-span-2 sm:col-span-1">
