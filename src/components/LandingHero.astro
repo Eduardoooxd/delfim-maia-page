@@ -6,13 +6,14 @@ import { Image } from "astro:assets";
 <section class="min-h-screen h-full p-8 sm:p-20 grid grid-cols-2 grid-rows-2">
   <Image src={LogoImage} alt="Image do logo de Delfim Maia" />
   <div></div>
-  <div></div>
-  <section class="flex justify-end items-center">
+  <div class="hidden sm:block"></div>
+  <section class="flex justify-end items-center col-span-2 sm:col-span-1">
     <p
-      class="text-right text-balance text-2xl w-full max-w-xl text-delfim-primary"
+      class="text-right text-balance text-2xl sm:text-3xl w-full max-w-xl text-delfim-primary"
     >
-      Mais de 40 anos a estudar o direito, a lutar pela justiça e criar relações
-      de confiança!
+      Mais de 40 anos <br /> a estudar o direito, <br /> a lutar pela justiça <br
+        class="hidden sm:block"
+      /> e criar relações de confiança!
     </p>
   </section>
 </section>
