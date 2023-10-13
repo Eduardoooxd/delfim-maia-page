@@ -29,7 +29,7 @@ const navlinks: {
   id="primary-navigation-bar"
   class="fixed z-10 top-0 left-0 w-full bg-white py-2 flex justify-between gap-4 items-center opacity-0 transition-opacity duration-300 ease-in"
 >
-  <section class="px-8">
+  <section class="px-8 sm:px-24">
     <Image
       class="w-[6.25rem] h-[4,875rem]"
       src={LogoImage}
@@ -38,7 +38,7 @@ const navlinks: {
   </section>
 
   <section class="flex-col gap-1 hidden sm:flex">
-    <section class="flex gap-8 pr-8">
+    <section class="flex gap-8 pr-8 sm:pr-24">
       {
         navlinks.map(({ title, href }) => (
           <a

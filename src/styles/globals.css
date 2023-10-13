@@ -35,7 +35,8 @@
     --radius: 0.5rem;
 
     --navbar-border: 0 0% 65%;
-    --delfim-primary: 5, 100%, 29%;
+    --delfim-primary: 5 100% 29%;
+    --delfim-primary-transparency: 148 12 0 / 70%;
   }
 
   .dark {
@@ -68,7 +69,8 @@
     --ring: 212.7 26.8% 83.9%;
 
     --navbar-border: 0 0% 65%;
-    --delfim-primary: 5, 100%, 29%;
+    --delfim-primary: 5 100% 29%;
+    --delfim-primary-transparency: 148 12 0 / 70%;
   }
 }
 

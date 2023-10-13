@@ -1,0 +1,21 @@
+---
+import { cn } from "@/lib/utils";
+interface Props {
+  className?: string;
+  textWithBackground: string;
+  textWithTransparentBackground: string;
+}
+const { className, textWithBackground, textWithTransparentBackground } =
+  Astro.props;
+---
+
+<div
+  class={cn(
+    "w-full bg-delfim-primary sm:bg-transparent sm:w-fit py-1 px-8 sm:px-24 text-white text-4xl text-center sm:text-right uppercase font-bold",
+    className,
+  )}
+>
+  <h5 class="bg-delfim-primary font-bold">
+    <slot />
+  </h5>
+</div>

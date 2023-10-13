@@ -72,7 +72,18 @@ module.exports = {
       fontFamily: {
         sans: ["Garet", ...defaultTheme.fontFamily.sans],
       },
+      gridTemplateColumns: {
+        "team-cards-columns": "repeat(auto-fit, minmax(21.25rem, 1fr))",
+      },
+      dropShadow: {
+        "text-outline": "0 1.5px 1.5px rgba(0 , 0, 0, 0.7)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: [
+    {
+      pattern: /bg-(work|shortBreak|longBreak)/,
+    },
+  ],
 };
