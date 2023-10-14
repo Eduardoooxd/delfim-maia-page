@@ -7,18 +7,18 @@ const BACKGROUNDS_COLORS: {
   imageBackground: string;
   textBackground: string;
 }[] = [
-  { imageBackground: "#d9d9d9", textBackground: "#4b3f3f" },
-  { imageBackground: "#697a7f", textBackground: "#697a7f" },
-  { imageBackground: "#a9afbb", textBackground: "#a9afbb" },
-  { imageBackground: "#bd9084", textBackground: "#bd9084" },
-  { imageBackground: "#b1ced1", textBackground: "#697a7f" },
-  { imageBackground: "#ebcfbd", textBackground: "#ebcfbd" },
-  { imageBackground: "#cbaabd", textBackground: "#cbaabd" },
-  { imageBackground: "#b3c1b6", textBackground: "#b3c1b6" },
-  { imageBackground: "#cccfff", textBackground: "#cccfff" },
-  { imageBackground: "#d5a38f", textBackground: "#d5a38f" },
-  { imageBackground: "#dfdaa9", textBackground: "#dfdaa9" },
-  { imageBackground: "#c67f78", textBackground: "#bd9084" },
+  { imageBackground: "bg-[#d9d9d9]", textBackground: "bg-[#4b3f3f]" },
+  { imageBackground: "bg-[#697a7f]", textBackground: "bg-[#697a7f]" },
+  { imageBackground: "bg-[#a9afbb]", textBackground: "bg-[#a9afbb]" },
+  { imageBackground: "bg-[#bd9084]", textBackground: "bg-[#bd9084]" },
+  { imageBackground: "bg-[#b1ced1]", textBackground: "bg-[#697a7f]" },
+  { imageBackground: "bg-[#ebcfbd]", textBackground: "bg-[#ebcfbd]" },
+  { imageBackground: "bg-[#cbaabd]", textBackground: "bg-[#cbaabd]" },
+  { imageBackground: "bg-[#b3c1b6]", textBackground: "bg-[#b3c1b6]" },
+  { imageBackground: "bg-[#cccfff]", textBackground: "bg-[#cccfff]" },
+  { imageBackground: "bg-[#d5a38f]", textBackground: "bg-[#d5a38f]" },
+  { imageBackground: "bg-[#dfdaa9]", textBackground: "bg-[#dfdaa9]" },
+  { imageBackground: "bg-[#c67f78]", textBackground: "bg-[#bd9084]" },
 ];
 
 type Props = TeamMember & {
@@ -28,21 +28,24 @@ type Props = TeamMember & {
 
 const { name, image, role, className, teamMemberIndex } = Astro.props;
 
-const backgroundColor =
+const { imageBackground, textBackground } =
   BACKGROUNDS_COLORS[teamMemberIndex % BACKGROUNDS_COLORS.length];
 ---
 
-<a class={cn("block relative", className)} href="#">
+<a class={cn("block relative", imageBackground, className)} href="bg-[#">
   <Image alt="" class="h-auto max-w-full rounded-lg" src={image} />
   <div
     class={cn(
       "absolute bottom-5 right-0 text-white py-2 min-w-[50%] flex justify-end",
-      `bg-[${backgroundColor}]`,
-      "bg-slate-600",
+      textBackground,
     )}
   >
-    <div class={cn("text-sm w-fit text-right capitalize")}>
-      <h6 class="text-sm font-semibold border-b pr-2">
+    <div
+      class={cn(
+        "text-sm w-fit text-right capitalize font-semibold text-shadow-sm shadow-slate-600",
+      )}
+    >
+      <h6 class="text-sm border-b pr-2">
         {name}
       </h6>
       <hr />

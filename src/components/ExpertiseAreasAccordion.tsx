@@ -8,7 +8,7 @@ import { EXPERTISE_AREAS } from "./data";
 
 export default function ExpertiseAreasAccordion() {
   return (
-    <section className="z-50 w-full sm:w-1/2 sm:self-end h-full">
+    <section className="z-50 w-full sm:w-1/2 sm:self-end">
       <Accordion type="single" className="w-full flex flex-col gap-2">
         {EXPERTISE_AREAS.map(({ area, description }, index) => (
           <AccordionItem
