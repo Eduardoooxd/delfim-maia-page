@@ -99,9 +99,4 @@ module.exports = {
       );
     }),
   ],
-  safelist: [
-    {
-      pattern: /bg-(work|shortBreak|longBreak)/,
-    },
-  ],
 };

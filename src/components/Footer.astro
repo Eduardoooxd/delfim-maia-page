@@ -1,0 +1,21 @@
+---
+import { Copyright } from "lucide-astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="py-4 px-8 sm:px-24 bg-delfim-primary flex flex-col sm:flex-row sm:justify-between sm:items-center text-white text-xs gap-6 w-full sm:font-bold"
+>
+  <div class="flex gap-1 items-center order-last sm:order-first">
+    <Copyright />
+    <p>Desenvolvido por ComunicAÇÃO | {currentYear}</p>
+  </div>
+  <div
+    class="flex flex-col sm:flex-row gap-4 sm:gap-20 sm:items-center sm:justify-between"
+  >
+    <h5 class="font-bold sm:hidden text-sm">Menu Rápido</h5>
+    <a class="" href="/termos-condicoes">Termos e Condições</a>
+    <a href="/politicas-privacidade">Politicas</a>
+  </div>
+</footer>

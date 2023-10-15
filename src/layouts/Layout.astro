@@ -1,10 +1,11 @@
 ---
+import Footer from "@/components/Footer.astro";
 import Navbar from "@/components/Navbar.astro";
 import PageBackground from "@/components/PageBackground.astro";
 ---
 
 <!doctype html>
-<html class="h-full" lang="pt">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -20,5 +21,6 @@ import PageBackground from "@/components/PageBackground.astro";
     <PageBackground />
     <Navbar />
     <slot />
+    <Footer />
   </body>
 </html>
