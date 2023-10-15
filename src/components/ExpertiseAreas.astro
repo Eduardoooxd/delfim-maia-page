@@ -1,12 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import SectionTitle from "./SectionTitle.astro";
-import SectionTitleTransparent from "./SectionTitleTransparent.astro";
 import ExpertiseAreasIllustration from "@/assets/images/expertise-areas-illustration.webp";
 import ExpertiseAreasAccordion from "./ExpertiseAreasAccordion";
 ---
 
-<section class="min-h-screen relative sm:py-12 flex flex-col gap-4">
+<section
+  id="expertise-areas"
+  class="min-h-screen relative sm:py-12 flex flex-col gap-4"
+>
   <Image
     class="absolute -z-10 inset-0 object-cover h-full w-full hidden sm:block"
     src={ExpertiseAreasIllustration}

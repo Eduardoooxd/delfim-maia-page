@@ -1,6 +1,6 @@
 ---
 import Footer from "@/components/Footer.astro";
-import Navbar from "@/components/Navbar.astro";
+import Navbar from "@/components/Navbar.tsx";
 import PageBackground from "@/components/PageBackground.astro";
 ---
 
@@ -19,7 +19,7 @@ import PageBackground from "@/components/PageBackground.astro";
   </head>
   <body class="h-full">
     <PageBackground />
-    <Navbar />
+    <Navbar client:load />
     <slot />
     <Footer />
   </body>
