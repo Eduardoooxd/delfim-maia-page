@@ -1,0 +1,21 @@
+---
+type Props = {
+  title: string;
+};
+const { title } = Astro.props;
+---
+
+<div class="flex gap-4">
+  <div class="grid place-items-center">
+    <div
+      class="rounded-full bg-delfim-primary h-fit p-2 flex justify-center items-center"
+    >
+      <slot name="contact-info-icon" />
+    </div>
+  </div>
+
+  <div>
+    <h4 class="font-bold text-base">{title}</h4>
+    <slot name="contact-info-description" />
+  </div>
+</div>

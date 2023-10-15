@@ -1,7 +1,67 @@
 ---
+import ContactInfo from "./ContactInfo.astro";
+import ContactMapEmbeded from "./ContactMapEmbeded.astro";
 import SectionTitle from "./SectionTitle.astro";
+import { Smartphone, Mail, Home } from "lucide-astro";
 ---
 
-<section class="min-h-screen">
+<section class="h-full overflow-hidden">
   <SectionTitle>Contactos</SectionTitle>
+  <article
+    class="w-full h-full sm:min-h-[48rem] p-8 sm:px-24 flex justify-center items-center"
+  >
+    <div
+      class="grid place-content-center gap-8 sm:gap-24 grid-cols-1 sm:grid-cols-2"
+    >
+      <div class="flex flex-col gap-8 h-full order-last sm:order-first">
+        <ContactInfo title="Morada:">
+          <Home class="text-white" slot="contact-info-icon" />
+          <div slot="contact-info-description">
+            <a
+              class="hover:underline"
+              href="https://www.google.com/maps?ll=41.353045,-8.748172&z=16&t=m&hl=pt-PT&gl=PT&mapclient=embed&cid=2886197521890413036"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p class="text-base">
+                Av. Dr. Artur da Cunha Araújo, 317
+                <br />
+                 4480-667 Vila do Conde
+              </p>
+            </a>
+          </div>
+        </ContactInfo>
+        <ContactMapEmbeded />
+      </div>
+      <div class="flex flex-col gap-8 h-full flex-1">
+        <ContactInfo title="Tel:">
+          <Smartphone class="text-white" slot="contact-info-icon" />
+          <div slot="contact-info-description">
+            <a
+              target="_blank"
+              class="hover:underline"
+              href="tel:+351 252 640 720"
+            >
+              <p class="text-base">252 640 720</p>
+            </a>
+
+            <p class="text-xs">(chamada para a rede fixa nacional)</p>
+          </div>
+        </ContactInfo>
+
+        <ContactInfo title="E-Mail:">
+          <Mail class="text-white" slot="contact-info-icon" />
+          <div slot="contact-info-description">
+            <a
+              target="_blank"
+              class="hover:underline"
+              href="mailto:geral@delfimmaia.pt"
+            >
+              <p class="text-base">geral@delfimmaia.pt</p>
+            </a>
+          </div>
+        </ContactInfo>
+      </div>
+    </div>
+  </article>
 </section>
