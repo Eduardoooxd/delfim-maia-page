@@ -1,7 +1,12 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { Copyright } from "lucide-astro";
 
 const currentYear = new Date().getFullYear();
+
+const lang = getLangFromUrl(Astro.url);
+const translationContent = useTranslations(lang);
+const { title, copyrightText, terms, policies } = translationContent.footer;
 ---
 
 <footer
@@ -9,13 +14,15 @@ const currentYear = new Date().getFullYear();
 >
   <div class="flex gap-1 items-center order-last sm:order-first">
     <Copyright />
-    <p>Desenvolvido por ComunicAÇÃO | {currentYear}</p>
+    <p>{copyrightText} | {currentYear}</p>
   </div>
   <div
     class="flex flex-col sm:flex-row gap-4 sm:gap-20 sm:items-center sm:justify-between"
   >
-    <h5 class="font-bold sm:hidden text-sm">Menu Rápido</h5>
-    <a class="hover:underline" href="/termos-condicoes">Termos e Condições</a>
-    <a class="hover:underline" href="/politicas-privacidade">Politicas</a>
+    <h5 class="font-bold sm:hidden text-sm">{title}</h5>
+    <a class="hover:underline" href={`/${lang}/${terms.href}`}>{terms.title}</a>
+    <a class="hover:underline" href={`/${lang}/${policies.href}`}
+      >{policies.title}</a
+    >
   </div>
 </footer>

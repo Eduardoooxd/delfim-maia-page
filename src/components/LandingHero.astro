@@ -1,6 +1,9 @@
 ---
+import { getLangFromUrl } from "@/i18n/utils";
 import LogoImage from "@/images/logo.webp";
 import { Image } from "astro:assets";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <section class="min-h-screen h-full p-8 sm:p-20 grid grid-cols-2 grid-rows-2">
@@ -8,17 +11,25 @@ import { Image } from "astro:assets";
     width={300}
     height={234}
     src={LogoImage}
-    alt="Image do logo de Delfim Maia"
+    alt={`${
+      lang === "pt" ? "Image do logo de Delfim Maia" : "Logo of Delfim Maia"
+    }`}
   />
   <div></div>
   <div class="hidden sm:block"></div>
   <section class="flex justify-end items-center col-span-2 sm:col-span-1">
-    <p
-      class="text-right text-balance text-2xl sm:text-3xl w-full max-w-xl text-delfim-primary"
-    >
-      Mais de 40 anos <br /> a estudar o direito, <br /> a lutar pela justiça <br
-        class="hidden sm:block"
-      /> e criar relações de confiança!
-    </p>
+    {
+      lang === "pt" ? (
+        <p class="text-right text-balance text-2xl sm:text-3xl w-full max-w-xl text-delfim-primary">
+          Mais de 40 anos <br /> a estudar o direito, <br /> a lutar pela
+          justiça <br class="hidden sm:block" /> e criar relações de confiança!
+        </p>
+      ) : (
+        <p class="text-right text-balance text-2xl sm:text-3xl w-full max-w-xl text-delfim-primary">
+          More than 40 years <br /> studying law, <br /> fighting for justice,
+          <br class="hidden sm:block" /> and building trusting relationships!
+        </p>
+      )
+    }
   </section>
 </section>

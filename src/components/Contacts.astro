@@ -1,12 +1,17 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import ContactInfo from "./ContactInfo.astro";
 import ContactMapEmbeded from "./ContactMapEmbeded.astro";
 import SectionTitle from "./SectionTitle.astro";
 import { Smartphone, Mail, Home } from "lucide-astro";
+
+const lang = getLangFromUrl(Astro.url);
+const translationContent = useTranslations(lang);
+const { title, address, telephone } = translationContent.contacts;
 ---
 
 <section id="contacts" class="h-full overflow-hidden">
-  <SectionTitle>Contactos</SectionTitle>
+  <SectionTitle>{title}</SectionTitle>
   <article
     class="w-full h-full sm:min-h-[48rem] p-8 sm:px-24 flex justify-center items-center"
   >
@@ -14,7 +19,7 @@ import { Smartphone, Mail, Home } from "lucide-astro";
       class="grid place-content-center gap-8 sm:gap-24 grid-cols-1 sm:grid-cols-2"
     >
       <div class="flex flex-col gap-8 h-full order-last sm:order-first">
-        <ContactInfo title="Morada:">
+        <ContactInfo title={`${address.title}:`}>
           <Home class="text-white" slot="contact-info-icon" />
           <div slot="contact-info-description">
             <a
@@ -34,7 +39,7 @@ import { Smartphone, Mail, Home } from "lucide-astro";
         <ContactMapEmbeded />
       </div>
       <div class="flex flex-col gap-8 h-full flex-1">
-        <ContactInfo title="Tel:">
+        <ContactInfo title={`${telephone.title}:`}>
           <Smartphone class="text-white" slot="contact-info-icon" />
           <div slot="contact-info-description">
             <a
@@ -45,7 +50,7 @@ import { Smartphone, Mail, Home } from "lucide-astro";
               <p class="text-base">252 640 720</p>
             </a>
 
-            <p class="text-xs">(chamada para a rede fixa nacional)</p>
+            <p class="text-xs">{telephone.information}</p>
           </div>
         </ContactInfo>
 

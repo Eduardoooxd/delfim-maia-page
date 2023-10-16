@@ -1,15 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import HistoryIllustrationImage from "@/images/history-illustration.webp";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const HISTORY_TEXT: string[] = [
-  "Com mais de 40 anos de história, orgulhamo-nos por ser um escritório moderno e apto para dar resposta às mais diversas solicitações que nos são dirigidas.",
-  "Fundados em 1980 pelo Dr. J. Delfim Maia, advogado que sempre se caracterizou pelo seu caracter combativo, pela seriedade, conhecimento e competência técnica, o então pequeno escritório foi crescendo aos poucos, com o decorrer dos tempos, e de acordo com as necessidades e desafios que nos iam sendo colocados pelos clientes.",
-  "Somos constituídos por uma equipa multifacetada e com vasta experiência profissional nas diversas áreas do Direito, formada por advogados de várias gerações e uma solicitadora, que, para além, de uma sólida formação académica, comungamos todos de uma filosofia muito própria de rigor deontológico, lealdade e de espírito de equipa.",
-  "Os valores norteadores da nossa atividade diária, no sentido de prevenir ou resolver problemas aos nossos clientes, são a independência profissional, a integridade, a qualidade do serviço, a competência técnica, a combatividade, a audácia e a dedicação.",
-  "Cientes de que não podemos dominar todas as áreas, apostamos na complementaridade, desenvolvendo algumas parcerias que nos têm permitido dar uma resposta coesa e articulada, com especialistas da nossa confiança, que partilhamdos mesmos valores de trabalho.",
-  "O espírito de equipa e de colaboração que nos une, permite ainda a troca de experiências e o debate indispensáveis a que, diariamente, busquemos a melhor resposta às solicitações que nos são dirigidas.",
-];
+const lang = getLangFromUrl(Astro.url);
+const translationContent = useTranslations(lang);
+const { title, subTitle, historyText } = translationContent.history;
 ---
 
 <section id="history" class="grid grid-cols-1 sm:grid-cols-[40%_1fr]">
@@ -22,16 +18,26 @@ const HISTORY_TEXT: string[] = [
     <p
       class="p-1 bg-delfim-primary sm:bg-transparent text-white text-3xl sm:absolute top-4 -right-0 block text-center font-bold uppercase"
     >
-      Quem <span class="bg-delfim-primary sm:py-1 sm:px-2"> Somos</span>
+      {
+        lang === "pt" ? (
+          <>
+            Quem <span class="bg-delfim-primary sm:py-1 sm:px-2">Somos</span>
+          </>
+        ) : (
+          <>
+            About <span class="bg-delfim-primary sm:py-1 sm:px-2">Us</span>
+          </>
+        )
+      }
     </p>
   </div>
   <article
     class="px-4 py-10 sm:py-4 sm:pt-28 w-full flex flex-col gap-4 max-w-5xl justify-between"
   >
-    <h5 class="uppercase font-bold text-xl sm:text-2xl">A nossa História</h5>
+    <h5 class="uppercase font-bold text-xl sm:text-2xl">{subTitle}</h5>
 
     {
-      HISTORY_TEXT.map((text) => (
+      historyText.map((text) => (
         <p class="text-balance text-sm sm:text-lg leading-7">{text}</p>
       ))
     }

@@ -1,11 +1,16 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import SectionTitle from "./SectionTitle.astro";
 import TeamMemberCard from "./TeamMemberCard.astro";
 import { TEAM_MEMBERS } from "./data";
+
+const lang = getLangFromUrl(Astro.url);
+const translationContent = useTranslations(lang);
+const { title } = translationContent.team;
 ---
 
 <section id="team" class="flex flex-col">
-  <SectionTitle>Equipa</SectionTitle>
+  <SectionTitle>{title}</SectionTitle>
   <article
     class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center"
   >

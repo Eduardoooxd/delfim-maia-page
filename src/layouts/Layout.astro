@@ -2,16 +2,18 @@
 import Footer from "@/components/Footer.astro";
 import Navbar from "@/components/Navbar.tsx";
 import PageBackground from "@/components/PageBackground.astro";
+import { getLangFromUrl } from "@/i18n/utils";
 
 type Props = {
   revealNavbarOnScroll: boolean;
 };
 
+const lang = getLangFromUrl(Astro.url);
 const { revealNavbarOnScroll } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="pt">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -25,7 +27,7 @@ const { revealNavbarOnScroll } = Astro.props;
   </head>
   <body class="h-full">
     <PageBackground />
-    <Navbar client:load revealNavbar={revealNavbarOnScroll} />
+    <Navbar client:load language={lang} revealNavbar={revealNavbarOnScroll} />
     <slot />
     <Footer />
   </body>

@@ -1,39 +1,21 @@
+import type { TRANSLATIONS_TYPE } from "@/i18n/ui";
+import { useTranslations } from "@/i18n/utils";
 import LogoImage from "@/images/logo.webp";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-const navlinks: {
+export interface NavLink {
   title: string;
   name: string;
   href: string;
-}[] = [
-  {
-    title: "Quem Somos",
-    name: "history",
-    href: "/#history",
-  },
-  {
-    title: "Equipa",
-    name: "team",
-    href: "/#team",
-  },
-  {
-    title: "Áreas de atuação",
-    name: "expertise-areas",
-    href: "/#expertise-areas",
-  },
-  {
-    title: "Contactos",
-    name: "contacts",
-    href: "/#contacts",
-  },
-];
+}
 
 type NavbarProps = {
   revealNavbar: boolean;
+  language: TRANSLATIONS_TYPE;
 };
 
-export default function Navbar({ revealNavbar }: NavbarProps) {
+export default function Navbar({ revealNavbar, language }: NavbarProps) {
   const [opacityToDisplay, setOpacityToDisplay] = useState<
     "opacity-100" | "opacity-0"
   >(!revealNavbar ? "opacity-100" : "opacity-0");
@@ -119,6 +101,9 @@ export default function Navbar({ revealNavbar }: NavbarProps) {
     };
   }, []);
 
+  const translationContent = useTranslations(language);
+  const { navlinks } = translationContent;
+
   return (
     <nav
       className={cn(
@@ -127,7 +112,7 @@ export default function Navbar({ revealNavbar }: NavbarProps) {
       )}
     >
       <section className="px-8 sm:px-24">
-        <a href="/">
+        <a href={`/${language}`}>
           <img
             className="w-[6.25rem] h-[4,875rem]"
             src={LogoImage.src}
@@ -142,7 +127,7 @@ export default function Navbar({ revealNavbar }: NavbarProps) {
             <a
               className="capitalize font-bold text-sm sm:text-base hover:text-delfim-primary transition-colors"
               section-name={name}
-              href={href}
+              href={`/${language}${href}`}
               key={name}
             >
               {title}
