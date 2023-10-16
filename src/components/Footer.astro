@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { Copyright } from "lucide-astro";
+import LanguagePickerMobile from "./LanguagePickerMobile.astro";
 
 const currentYear = new Date().getFullYear();
 
@@ -25,4 +26,5 @@ const { title, copyrightText, terms, policies } = translationContent.footer;
       >{policies.title}</a
     >
   </div>
+  <LanguagePickerMobile />
 </footer>

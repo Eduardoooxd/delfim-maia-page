@@ -1,0 +1,18 @@
+---
+import { languages } from "@/i18n/ui";
+---
+
+<ul class="absolute right-0 top-12 hidden sm:flex flex-col gap-2 z-[110]">
+  {
+    Object.entries(languages).map(([language]) => (
+      <li class="bg-delfim-primary text-white py-2 pl-2 pr-12">
+        <a
+          class="uppercase text-sm font-semibold hover:underline"
+          href={`/${language}/`}
+        >
+          {language}
+        </a>
+      </li>
+    ))
+  }
+</ul>
