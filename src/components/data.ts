@@ -107,7 +107,7 @@ export const EXPERTISE_AREAS: ExpertiseArea[] = [
       "O Direito Administrativo e Contratação Pública abrange as regras.",
   },
   {
-    area: "Familia e Menores",
+    area: "Família e Menores",
     description:
       "O Direito Administrativo e Contratação Pública abrange as regras e regulamentos que governam as ações do setor público e as transações contratuais com entidades governamentais.",
   },

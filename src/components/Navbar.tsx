@@ -29,12 +29,20 @@ const navlinks: {
   },
 ];
 
-export default function Navbar() {
+type NavbarProps = {
+  revealNavbar: boolean;
+};
+
+export default function Navbar({ revealNavbar }: NavbarProps) {
   const [opacityToDisplay, setOpacityToDisplay] = useState<
     "opacity-100" | "opacity-0"
-  >("opacity-0");
+  >(!revealNavbar ? "opacity-100" : "opacity-0");
 
   const getOpacityToDisplay = () => {
+    if (!revealNavbar) {
+      return "opacity-100";
+    }
+
     if (!window) {
       return "";
     }
@@ -50,11 +58,16 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    getOpacityToDisplay();
-    window?.addEventListener("scroll", getOpacityToDisplay);
+    if (revealNavbar) {
+      getOpacityToDisplay();
+      window?.addEventListener("scroll", getOpacityToDisplay);
+    }
 
     return () => {
-      window?.removeEventListener("scroll", getOpacityToDisplay);
+      if (revealNavbar) {
+        // Only remove if it's added while
+        window?.removeEventListener("scroll", getOpacityToDisplay);
+      }
     };
   }, []);
 
@@ -114,11 +127,13 @@ export default function Navbar() {
       )}
     >
       <section className="px-8 sm:px-24">
-        <img
-          className="w-[6.25rem] h-[4,875rem]"
-          src={LogoImage.src}
-          alt="Image do logo de Delfim Maia"
-        />
+        <a href="/">
+          <img
+            className="w-[6.25rem] h-[4,875rem]"
+            src={LogoImage.src}
+            alt="Image do logo de Delfim Maia"
+          />
+        </a>
       </section>
 
       <section className="flex-col gap-1 hidden sm:flex">
