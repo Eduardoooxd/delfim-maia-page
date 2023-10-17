@@ -1,4 +1,4 @@
-import type { TRANSLATIONS_TYPE } from "@/i18n/ui";
+import { languages, type TRANSLATIONS_TYPE } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
 import LogoImage from "@/images/logo.webp";
 import { cn } from "@/lib/utils";
@@ -185,6 +185,22 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
             {title}
           </a>
         ))}
+
+        <ul className="flex sm:hidden gap-2">
+          {Object.entries(languages).map(([languageList]) => (
+            <li key={languageList}>
+              <a
+                className={cn(
+                  "uppercase font-bold text-xl",
+                  `${language === languageList ? "text-delfim-primary " : ""}`,
+                )}
+                href={`/${languageList}/`}
+              >
+                {languageList}
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
     </nav>
   );
