@@ -8,6 +8,16 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
 const { title } = translationContent.expertiseAreas;
+
+const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
+
+const { results } = await fetch(
+  `https://cdn.builder.io/api/v3/content/expertise-areas?apiKey=${builderAPIpublicKey}`,
+)
+  .then((res) => res.json())
+  .catch();
+
+const areas = results[0].data.expertiseAreas;
 ---
 
 <section
@@ -22,5 +32,9 @@ const { title } = translationContent.expertiseAreas;
 
   <SectionTitle>{title}</SectionTitle>
 
-  <ExpertiseAreasAccordion client:load />
+  <ExpertiseAreasAccordion
+    currentLanguage={lang}
+    expertiseAreas={areas}
+    client:load
+  />
 </section>
