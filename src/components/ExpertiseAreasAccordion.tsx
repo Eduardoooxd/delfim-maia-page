@@ -66,7 +66,7 @@ const ExpertiseAreasAccordionItem = ({
         className="bg-[rgba(148_12_0_/_75%)] border-none"
         value={`item-${index}`}
       >
-        <AccordionTrigger className="font-bold text-lg text-white px-8 drop-shadow-text-outline">
+        <AccordionTrigger className="font-bold text-lg text-white px-8 drop-shadow-text-outline text-start">
           {area}
         </AccordionTrigger>
         <AccordionContent className="bg-[rgba(192_193_196/_95%)] pt-4 px-8">

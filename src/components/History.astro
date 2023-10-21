@@ -16,16 +16,19 @@ const { title, subTitle, historyText } = translationContent.history;
       src={HistoryIllustrationImage}
     />
     <p
-      class="p-1 bg-delfim-primary sm:bg-transparent text-white text-3xl sm:absolute top-4 -right-0 block text-center font-bold uppercase"
+      class="p-1 bg-delfim-primary sm:bg-transparent text-white text-3xl sm:absolute top-4 -right-0 block text-center font-bold uppercase text-shadow shadow-slate-600"
     >
       {
         lang === "pt" ? (
           <>
-            Quem <span class="bg-delfim-primary sm:py-1 sm:px-2">Somos</span>
+            Quem{" "}
+            <span class="bg-delfim-primary sm:py-1 sm:px-2 text-shadow-sm shadow-slate-600">
+              Somos
+            </span>
           </>
         ) : (
           <>
-            About <span class="bg-delfim-primary sm:py-1 sm:px-2">Us</span>
+            About <span class="bg-delfim-primary sm:py-1 sm:px-2 ">Us</span>
           </>
         )
       }
