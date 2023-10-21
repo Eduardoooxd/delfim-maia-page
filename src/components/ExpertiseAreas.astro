@@ -4,12 +4,19 @@ import SectionTitle from "./SectionTitle.astro";
 import ExpertiseAreasIllustration from "@/assets/images/expertise-areas-illustration.webp";
 import ExpertiseAreasAccordion from "./ExpertiseAreasAccordion";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { delay } from "@/utils/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
 const { title } = translationContent.expertiseAreas;
 
 const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
+const isProduction = import.meta.env.PROD;
+
+if (isProduction) {
+  // Force the delay of request to CMS to wait 30 seconds because CMS takes some seconds to refresh data.
+  await delay(30000);
+}
 
 const { results } = await fetch(
   `https://cdn.builder.io/api/v3/content/expertise-areas?apiKey=${builderAPIpublicKey}`,

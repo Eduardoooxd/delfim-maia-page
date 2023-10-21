@@ -3,12 +3,20 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import SectionTitle from "./SectionTitle.astro";
 import TeamMemberCard from "./TeamMemberCard.astro";
 import type { TeamMember } from "./TeamMember";
+import { delay } from "@/utils/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
 const { title } = translationContent.team;
 
 const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
+
+const isProduction = import.meta.env.PROD;
+
+if (isProduction) {
+  // Force the delay of request to CMS to wait 30 seconds because CMS takes some seconds to refresh data.
+  await delay(30000);
+}
 
 const { results } = await fetch(
   `https://cdn.builder.io/api/v3/content/team-members?apiKey=${builderAPIpublicKey}`,

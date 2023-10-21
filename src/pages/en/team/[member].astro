@@ -3,9 +3,17 @@ import "@/styles/globals.css";
 import type { TeamMember } from "@/components/TeamMember.ts";
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
+import { delay } from "@/utils/utils";
 
 export async function getStaticPaths() {
   const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
+
+  const isProduction = import.meta.env.PROD;
+
+  if (isProduction) {
+    // Force the delay of request to CMS to wait 30 seconds because CMS takes some seconds to refresh data.
+    await delay(30000);
+  }
 
   const { results } = await fetch(
     `https://cdn.builder.io/api/v3/content/team-members?apiKey=${builderAPIpublicKey}`,
