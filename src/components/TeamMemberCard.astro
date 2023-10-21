@@ -78,7 +78,15 @@ type Props = TeamMember & {
 
 const lang = getLangFromUrl(Astro.url);
 
-const { name, roleEn, rolePt, image, className, teamMemberIndex } = Astro.props;
+const {
+  teamMemberId,
+  name,
+  roleEn,
+  rolePt,
+  image,
+  className,
+  teamMemberIndex,
+} = Astro.props;
 
 const { imageBackground, textBackground, hoverImageBackground } =
   BACKGROUNDS_COLORS[teamMemberIndex % BACKGROUNDS_COLORS.length];
@@ -91,7 +99,7 @@ const { imageBackground, textBackground, hoverImageBackground } =
     hoverImageBackground,
     className,
   )}
-  href=""
+  href={`/${lang}/team/${teamMemberId}`}
 >
   <Image width={720} height={1080} alt="" class="h-auto w-full" src={image} />
   <div

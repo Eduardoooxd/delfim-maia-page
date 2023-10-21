@@ -3,7 +3,7 @@ import { useTranslations } from "@/i18n/utils";
 import LogoImage from "@/images/logo.webp";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 export interface NavLink {
@@ -137,7 +137,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
       )}
     >
       <div className="flex justify-between gap-4 items-center">
-        <section className="px-8 sm:px-24">
+        <section className="px-8 lg:px-24">
           <a href={`/${language}`}>
             <img
               className="w-[6.25rem] h-[4,875rem]"
@@ -147,11 +147,11 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
           </a>
         </section>
 
-        <section className="flex-col gap-1 hidden sm:flex">
-          <section className="flex gap-8 pr-8 sm:pr-24">
+        <section className="flex-col gap-1 hidden lg:flex">
+          <section className="flex gap-8 pr-8 lg:pr-24">
             {navlinks.map(({ title, href, name }) => (
               <a
-                className="capitalize font-bold text-sm sm:text-base hover:text-delfim-primary transition-colors"
+                className="capitalize font-bold text-sm lg:text-base hover:text-delfim-primary transition-colors"
                 section-name={name}
                 href={`/${language}${href}`}
                 key={name}
@@ -163,7 +163,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
           <div className="border-b-4 border-navbar-border"></div>
         </section>
 
-        <section className="sm:hidden px-8">
+        <section className="lg:hidden px-8">
           <Button
             onClick={() => toggleMobileMenu()}
             variant="ghost"
@@ -181,7 +181,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
       <section
         className={cn(
           "flex-col gap-4 px-8",
-          `${mobileMenuOpen ? "flex" : "hidden sm:hidden"}`,
+          `${mobileMenuOpen ? "flex" : "hidden lg:hidden"}`,
         )}
       >
         {navlinks.map(({ title, href, name }) => (
@@ -198,7 +198,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
           </a>
         ))}
 
-        <ul className="flex sm:hidden gap-2">
+        <ul className="flex lg:hidden gap-2">
           {Object.entries(languages).map(([languageList]) => (
             <li key={languageList}>
               <a

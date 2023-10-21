@@ -23,12 +23,11 @@ const { title, address, telephone } = translationContent.contacts;
           <Home class="text-white" slot="contact-info-icon" />
           <div slot="contact-info-description">
             <a
-              class="hover:underline"
               href="https://www.google.com/maps?ll=41.353045,-8.748172&z=16&t=m&hl=pt-PT&gl=PT&mapclient=embed&cid=2886197521890413036"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p class="text-base">
+              <p class="text-base underline">
                 Av. Dr. Artur da Cunha Araújo, 317
                 <br />
                  4480-667 Vila do Conde
@@ -42,12 +41,8 @@ const { title, address, telephone } = translationContent.contacts;
         <ContactInfo title={`${telephone.title}:`}>
           <Smartphone class="text-white" slot="contact-info-icon" />
           <div slot="contact-info-description">
-            <a
-              target="_blank"
-              class="hover:underline"
-              href="tel:+351 252 640 720"
-            >
-              <p class="text-base">252 640 720</p>
+            <a target="_blank" class="underline" href="tel:+351 252 640 720">
+              <p class="text-base underline">252 640 720</p>
             </a>
 
             <p class="text-xs">{telephone.information}</p>
@@ -59,7 +54,7 @@ const { title, address, telephone } = translationContent.contacts;
           <div slot="contact-info-description">
             <a
               target="_blank"
-              class="hover:underline"
+              class="underline"
               href="mailto:geral@delfimmaia.pt"
             >
               <p class="text-base">geral@delfimmaia.pt</p>

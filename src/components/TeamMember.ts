@@ -4,6 +4,19 @@ export interface TeamMember {
   image: string;
   rolePt: string;
   roleEn: string;
-  descriptionEn: string;
-  descriptionPt: string;
+  email: string;
+  cpEn?: string;
+  cpPt?: string;
+  formationsEn?: {
+    formationsEnItem: string;
+  }[];
+  formationsPt?: {
+    formationPtItem: string;
+  }[];
+  preferencesAreaEn?: {
+    preferenceaAreaItemEn: string;
+  }[];
+  preferencesAreaPt?: {
+    preferenceaAreaItemPt: string;
+  }[];
 }

@@ -1,0 +1,112 @@
+---
+import "@/styles/globals.css";
+import type { TeamMember } from "@/components/TeamMember.ts";
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
+
+  const { results } = await fetch(
+    `https://cdn.builder.io/api/v3/content/team-members?apiKey=${builderAPIpublicKey}`,
+  ).then((res) => res.json());
+
+  const dataTeamMembers: TeamMember[] = results[0].data.teamMembers;
+
+  const paths = dataTeamMembers.map((teamMember) => {
+    return {
+      params: { member: teamMember.teamMemberId },
+      props: { teamMember },
+    };
+  });
+
+  return paths;
+}
+
+const teamMember: TeamMember = Astro.props.teamMember;
+const { name, email, image, rolePt, cpPt, formationsPt, preferencesAreaPt } =
+  teamMember;
+---
+
+<Layout revealNavbarOnScroll={false}>
+  <main class="h-full flex flex-col gap-4 mt-[5.875rem]">
+    <section
+      class="min-h-screen relative w-full grid grid-cols-1 sm:grid-cols-[22.5rem_1fr]"
+    >
+      <div
+        class="bg-delfim-primary flex items-center justify-center p-2 sm:p-8 gap-2 flex-col"
+      >
+        <Image
+          width={300}
+          height={450}
+          alt=""
+          class="h-auto w-full rounded-md"
+          src={image}
+        />
+        <h6 class="text-lg text-white font-semibold">
+          {name}
+        </h6>
+        <p class="text-base text-white underline">
+          {rolePt}
+        </p>
+      </div>
+      <div
+        class="p-2 bg-white sm:bg-transparent min-h-screen sm:min-h-fit sm:p-8 h-full"
+      >
+        <div
+          class="rounded-md bg-white h-full p-2 sm:p-8 flex flex-col gap-2 sm:gap-4"
+        >
+          <h6 class="text-lg capitalize">
+            <b>Nome: {" "}</b>
+            {name}
+          </h6>
+          <a target="_blank" href=`mailto:${email}`>
+            <p class="text-lg">
+              <b>Email: {" "}</b>
+              <span class="underline"> {email}</span>
+            </p>
+          </a>
+          {
+            cpPt ? (
+              <p class="text-lg capitalize">
+                <b>Cédula: </b> {cpPt}
+              </p>
+            ) : null
+          }
+          {
+            formationsPt && formationsPt.length > 0 ? (
+              <div class="flex flex-col gap-2 capitalize">
+                <p class="text-lg">
+                  <b>Formação: </b>
+                </p>
+                <ul class="flex flex-col gap-2 px-8">
+                  {formationsPt?.map((formation) => (
+                    <li class="text-base list-disc">
+                      {formation.formationPtItem}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null
+          }
+          {
+            preferencesAreaPt && preferencesAreaPt.length > 0 ? (
+              <div class="flex flex-col gap-2 capitalize">
+                <p class="text-lg">
+                  <b>Áreas preferenciais: </b>
+                </p>
+                <ul class="flex flex-col gap-2 px-8">
+                  {preferencesAreaPt?.map((preferenceArea) => (
+                    <li class="text-base list-disc">
+                      {preferenceArea.preferenceaAreaItemPt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
