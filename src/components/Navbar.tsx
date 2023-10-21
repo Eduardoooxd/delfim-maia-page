@@ -3,7 +3,7 @@ import { useTranslations } from "@/i18n/utils";
 import LogoImage from "@/images/logo.webp";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { Button } from "./ui/button";
 
 export interface NavLink {
@@ -104,6 +104,18 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
       });
     };
   }, []);
+
+  useEffect(() => {
+    const originalStyle: string = window.getComputedStyle(
+      document.body,
+    ).overflow;
+
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => (document.body.style.overflow = originalStyle);
+  }, [mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prevValue) => !prevValue);
