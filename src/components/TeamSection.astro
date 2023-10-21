@@ -2,11 +2,21 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import SectionTitle from "./SectionTitle.astro";
 import TeamMemberCard from "./TeamMemberCard.astro";
-import { TEAM_MEMBERS } from "./data";
+import type { TeamMember } from "./TeamMember";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
 const { title } = translationContent.team;
+
+const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
+
+const { results } = await fetch(
+  `https://cdn.builder.io/api/v3/content/team-members?apiKey=${builderAPIpublicKey}`,
+)
+  .then((res) => res.json())
+  .catch();
+
+const teamMembers: TeamMember[] = results[0].data.teamMembers;
 ---
 
 <section id="team" class="flex flex-col">
@@ -15,7 +25,7 @@ const { title } = translationContent.team;
     class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center"
   >
     {
-      TEAM_MEMBERS.map((teamMember, index) => (
+      teamMembers.map((teamMember, index) => (
         <TeamMemberCard teamMemberIndex={index} {...teamMember} />
       ))
     }
