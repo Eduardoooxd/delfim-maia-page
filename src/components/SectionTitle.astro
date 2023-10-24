@@ -7,7 +7,10 @@ const { className } = Astro.props;
 ---
 
 <div
-  class={cn("w-full bg-delfim-primary sm:w-fit py-1 px-8 sm:px-24", className)}
+  class={cn(
+    "w-full bg-delfim-primary sm:w-fit py-1 px-8 sm:pl-20 sm:pr-6",
+    className,
+  )}
 >
   <h5 class="uppercase font-bold text-white text-4xl text-center sm:text-right">
     <slot />
