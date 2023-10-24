@@ -23,7 +23,11 @@ export default function ExpertiseAreasAccordion({
 }: ExpertiseAreasAccordionProps) {
   return (
     <section className="z-50 w-full sm:w-1/2 sm:self-end">
-      <Accordion type="single" className="w-full flex flex-col gap-2">
+      <Accordion
+        type="single"
+        defaultValue="item-0"
+        className="w-full flex flex-col gap-2"
+      >
         {expertiseAreas?.map(
           ({ areaEn, areaPt, descriptionEn, descriptionPt }, index) => {
             if (currentLanguage === "en") {
