@@ -41,31 +41,22 @@ const { name, email, image, rolePt, cpPt, formationsPt, preferencesAreaPt } =
     <section
       class="min-h-screen relative w-full grid grid-cols-1 sm:grid-cols-[22.5rem_1fr]"
     >
-      <div
-        class="bg-delfim-primary flex items-center justify-center p-2 sm:p-8 gap-2 flex-col"
-      >
+      <div class="bg-delfim-primary flex items-center justify-center">
         <Image
           width={300}
           height={450}
           alt=""
-          class="h-auto w-full rounded-md"
+          class="h-auto w-full"
           src={image}
         />
-        <h6 class="text-lg text-white font-semibold">
-          {name}
-        </h6>
-        <p class="text-base text-white underline">
-          {rolePt}
-        </p>
       </div>
       <div
         class="p-2 bg-white sm:bg-transparent min-h-screen sm:min-h-fit sm:p-8 h-full"
       >
         <div
-          class="rounded-md bg-white h-full p-2 sm:p-8 flex flex-col gap-2 sm:gap-4"
+          class="rounded-md bg-white h-full p-2 sm:p-8 flex flex-col gap-6 sm:gap-12"
         >
-          <h6 class="text-lg capitalize">
-            <b>Nome: {" "}</b>
+          <h6 class="text-xl capitalize font-bold">
             {name}
           </h6>
           <a target="_blank" href=`mailto:${email}`>
@@ -113,6 +104,13 @@ const { name, email, image, rolePt, cpPt, formationsPt, preferencesAreaPt } =
               </div>
             ) : null
           }
+
+          <a
+            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-fit mx-auto bg-delfim-primary"
+            href={`/pt`}
+          >
+            Voltar</a
+          >
         </div>
       </div>
     </section>
