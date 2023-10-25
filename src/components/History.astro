@@ -8,15 +8,15 @@ const translationContent = useTranslations(lang);
 const { title, subTitle, historyText } = translationContent.history;
 ---
 
-<section id="history" class="grid grid-cols-1 sm:grid-cols-[40%_1fr]">
+<section id="history" class="grid grid-cols-1 sm:grid-cols-[1fr_65%]">
   <div class="relative">
     <Image
-      class="hidden sm:block h-full max-h-[58rem]"
+      class="hidden sm:block h-full w-full"
       alt="Ilustração da História de Delfim Maia"
       src={HistoryIllustrationImage}
     />
     <p
-      class="p-1 bg-delfim-primary sm:bg-transparent text-white text-3xl sm:absolute top-4 -right-0 block text-center font-bold uppercase text-shadow shadow-slate-600"
+      class="p-1 bg-delfim-primary sm:bg-transparent text-white text-3xl sm:absolute top-4 -right-[10%] block text-center font-bold uppercase text-shadow shadow-slate-600"
     >
       {
         lang === "pt" ? (
@@ -28,7 +28,7 @@ const { title, subTitle, historyText } = translationContent.history;
           </>
         ) : (
           <>
-            About <span class="bg-delfim-primary sm:py-1 sm:px-2 ">Us</span>
+            About <span class="bg-delfim-primary sm:py-1 sm:px-3 ">Us</span>
           </>
         )
       }
