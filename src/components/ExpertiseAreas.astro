@@ -37,14 +37,23 @@ const areas = results[0].data.expertiseAreas;
     alt="Image do logo de Delfim Maia"
   />
 
-  <div
-    class={"w-full bg-delfim-primary sm:w-fit py-1 px-8 sm:pl-20 sm:pr-6 sm:relative sm:top-12"}
-  >
-    <h5
-      class="uppercase font-bold text-white text-4xl text-center sm:text-right"
-    >
+  <div class={"w-full bg-delfim-primary py-1 px-8 sm:hidden"}>
+    <h5 class="uppercase font-bold text-white text-4xl text-center">
       {title}
     </h5>
+  </div>
+
+  <div class={"hidden sm:flex w-fit relative top-12 text-right gap-1"}>
+    <div class="bg-delfim-primary pl-20 py-2 pr-2">
+      <h5 class="uppercase font-bold text-white text-4xl text-center">
+        {lang === "pt" ? "Áreas" : "Areas"}
+      </h5>
+    </div>
+    <div class="py-2">
+      <h5 class="uppercase font-bold text-white text-4xl text-center">
+        {lang === "pt" ? "de atuacão" : "of practice"}
+      </h5>
+    </div>
   </div>
 
   <ExpertiseAreasAccordion
