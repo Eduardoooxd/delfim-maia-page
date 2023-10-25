@@ -104,21 +104,21 @@ const { imageBackground, textBackground, hoverImageBackground } =
   <Image width={720} height={1080} alt="" class="h-auto w-full" src={image} />
   <div
     class={cn(
-      "absolute bottom-5 right-0 text-white py-2 min-w-[12rem] flex justify-end",
+      "absolute bottom-5 right-0 text-white py-2 min-w-[50%] w-fit flex justify-end",
       textBackground,
     )}
   >
     <div
       class={cn(
-        "text-sm w-fit text-right capitalize font-semibold text-shadow-sm shadow-slate-600",
+        "text-sm w-fit pl-3 text-right capitalize text-shadow-sm shadow-slate-600",
       )}
     >
-      <h6 class="text-sm border-b pr-2">
+      <h6 class="text-sm border-b pr-2 font-semibold">
         {name}
       </h6>
       <hr />
 
-      <p class="text-sm px-2">{lang === "en" ? roleEn : rolePt}</p>
+      <p class="text-sm pr-2">{lang === "en" ? roleEn : rolePt}</p>
     </div>
   </div>
 </a>
