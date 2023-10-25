@@ -4,6 +4,8 @@ import type { TeamMember } from "@/components/TeamMember.ts";
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { delay } from "@/utils/utils";
+import { TEAM_MEMBER_BACKGROUNDS_COLORS } from "@/components/data";
+import { cn } from "@/lib/utils";
 
 export async function getStaticPaths() {
   const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
@@ -21,27 +23,33 @@ export async function getStaticPaths() {
 
   const dataTeamMembers: TeamMember[] = results[0].data.teamMembers;
 
-  const paths = dataTeamMembers.map((teamMember) => {
+  const paths = dataTeamMembers.map((teamMember, index) => {
     return {
       params: { member: teamMember.teamMemberId },
-      props: { teamMember },
+      props: { teamMember, teamMemberIndex: index },
     };
   });
 
   return paths;
 }
 
+const teamMemberIndex: number = Astro.props.teamMemberIndex;
 const teamMember: TeamMember = Astro.props.teamMember;
 const { name, email, image, rolePt, cpPt, formationsPt, preferencesAreaPt } =
   teamMember;
+
+const { imageBackground } =
+  TEAM_MEMBER_BACKGROUNDS_COLORS[
+    teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
+  ];
 ---
 
 <Layout revealNavbarOnScroll={false}>
   <main class="h-full flex flex-col gap-4 mt-[5.875rem]">
     <section
-      class="min-h-screen relative w-full grid grid-cols-1 sm:grid-cols-[22.5rem_1fr]"
+      class="relative w-full grid grid-cols-1 sm:grid-cols-[22.5rem_1fr] min-h-[calc(100vh-9.375rem)]"
     >
-      <div class="bg-delfim-primary flex items-center justify-center">
+      <div class={cn("flex items-end justify-center", imageBackground)}>
         <Image
           width={300}
           height={450}
@@ -50,11 +58,9 @@ const { name, email, image, rolePt, cpPt, formationsPt, preferencesAreaPt } =
           src={image}
         />
       </div>
-      <div
-        class="p-2 bg-white sm:bg-transparent min-h-screen sm:min-h-fit sm:p-8 h-full"
-      >
+      <div class="p-2 bg-white sm:bg-transparent sm:p-0 h-full relative">
         <div
-          class="rounded-md bg-white h-full p-2 sm:p-8 flex flex-col gap-6 sm:gap-12"
+          class="rounded-md bg-white h-full p-2 sm:p-4 flex flex-col gap-6 sm:gap-14"
         >
           <h6 class="text-xl capitalize font-bold">
             {name}
@@ -106,8 +112,8 @@ const { name, email, image, rolePt, cpPt, formationsPt, preferencesAreaPt } =
           }
 
           <a
-            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-fit mx-auto bg-delfim-primary"
-            href={`/pt`}
+            class="inline-flex sm:absolute sm:right-4 sm:bottom-4 items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-fit mx-auto bg-delfim-primary"
+            href={`/pt#team`}
           >
             Voltar</a
           >
