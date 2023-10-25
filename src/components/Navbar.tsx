@@ -151,7 +151,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
           <section className="flex gap-8 pr-8 lg:pr-24">
             {navlinks.map(({ title, href, name }) => (
               <a
-                className="capitalize font-bold text-sm lg:text-base hover:text-delfim-primary transition-colors"
+                className=" font-bold text-sm lg:text-base hover:text-delfim-primary transition-colors"
                 section-name={name}
                 href={`/${language}${href}`}
                 key={name}
@@ -186,7 +186,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
       >
         {navlinks.map(({ title, href, name }) => (
           <a
-            className="capitalize font-bold text-xl"
+            className="font-bold text-xl"
             section-name={name}
             href={`/${language}${href}`}
             onClick={() => {
