@@ -43,6 +43,13 @@ interface translations_content {
       href: string;
     };
   };
+  teamMemberPage: {
+    emailText: string;
+    professionalLicense: string;
+    education: string;
+    areasOfPractice: string;
+    goBackText: string;
+  };
 }
 
 interface translations_interface {
@@ -114,6 +121,13 @@ export const translations: translations_interface = {
         href: "policies",
       },
     },
+    teamMemberPage: {
+      emailText: "Email",
+      professionalLicense: "Professional License",
+      education: "Education",
+      areasOfPractice: "Preferred Areas of Practice",
+      goBackText: "Go Back",
+    },
   },
   pt: {
     navlinks: [
@@ -177,6 +191,13 @@ export const translations: translations_interface = {
         title: "Politicas",
         href: "policies",
       },
+    },
+    teamMemberPage: {
+      emailText: "Email",
+      professionalLicense: "Cédula",
+      education: "Formação",
+      areasOfPractice: "Áreas preferenciais",
+      goBackText: "Voltar",
     },
   },
 };

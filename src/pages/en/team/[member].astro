@@ -2,10 +2,8 @@
 import "@/styles/globals.css";
 import type { TeamMember } from "@/types/TeamMember";
 import Layout from "@/layouts/Layout.astro";
-import { Image } from "astro:assets";
 import { delay } from "@/utils/utils";
-import { TEAM_MEMBER_BACKGROUNDS_COLORS } from "@/components/data";
-import { cn } from "@/lib/utils";
+import TeamMemberPage from "@/components/TeamMemberPage.astro";
 
 export async function getStaticPaths() {
   const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
@@ -35,90 +33,34 @@ export async function getStaticPaths() {
 
 const teamMemberIndex: number = Astro.props.teamMemberIndex;
 const teamMember: TeamMember = Astro.props.teamMember;
-const { name, email, image, roleEn, cpEn, formationsEn, preferencesAreaEn } =
+const { name, email, image, cpEn, formationsEn, preferencesAreaEn } =
   teamMember;
 
-const { imageBackground } =
-  TEAM_MEMBER_BACKGROUNDS_COLORS[
-    teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
-  ];
+const formations:
+  | {
+      formationItem: string;
+    }[]
+  | undefined = formationsEn?.map((formation) => {
+  return { formationItem: formation.formationsEnItem };
+});
+
+const preferencesArea:
+  | {
+      preferenceaAreaItem: string;
+    }[]
+  | undefined = preferencesAreaEn?.map((preferenceArea) => {
+  return { preferenceaAreaItem: preferenceArea.preferenceaAreaItemEn };
+});
 ---
 
 <Layout revealNavbarOnScroll={false}>
-  <main class="h-full flex flex-col gap-4 mt-[5.875rem]">
-    <section
-      class="relative w-full grid grid-cols-1 sm:grid-cols-[22.5rem_1fr] min-h-[calc(100vh-9.375rem)]"
-    >
-      <div class={cn("flex items-end justify-center", imageBackground)}>
-        <Image
-          width={300}
-          height={450}
-          alt=""
-          class="h-auto w-full"
-          src={image}
-        />
-      </div>
-      <div class="p-2 bg-white sm:bg-transparent sm:p-0 h-full relative">
-        <div
-          class="rounded-md bg-white h-full p-2 sm:p-4 flex flex-col gap-6 sm:gap-14"
-        >
-          <h6 class="text-lg capitalize font-bold">
-            {name}
-          </h6>
-          <a target="_blank" href=`mailto:${email}`>
-            <p class="text-lg">
-              <b>Email: {" "}</b>
-              <span class="underline"> {email}</span>
-            </p>
-          </a>
-          {
-            cpEn ? (
-              <p class="text-lg capitalize">
-                <b>Professional License: </b> {cpEn}
-              </p>
-            ) : null
-          }
-          {
-            formationsEn && formationsEn.length > 0 ? (
-              <div class="flex flex-col gap-2 capitalize">
-                <p class="text-lg">
-                  <b>Education: </b>
-                </p>
-                <ul class="flex flex-col gap-2 px-8">
-                  {formationsEn?.map((formation) => (
-                    <li class="text-base list-disc">
-                      {formation.formationsEnItem}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null
-          }
-          {
-            preferencesAreaEn && preferencesAreaEn.length > 0 ? (
-              <div class="flex flex-col gap-2 capitalize">
-                <p class="text-lg">
-                  <b>Preferred Areas of Practice: </b>
-                </p>
-                <ul class="flex flex-col gap-2 px-8">
-                  {preferencesAreaEn?.map((preferenceArea) => (
-                    <li class="text-base list-disc">
-                      {preferenceArea.preferenceaAreaItemEn}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null
-          }
-
-          <a
-            class="inline-flex sm:absolute sm:right-4 sm:bottom-4 items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-fit mx-auto bg-delfim-primary"
-            href={`/en#team`}
-          >
-            Go Back</a
-          >
-        </div>
-      </div>
-    </section>
-  </main>
+  <TeamMemberPage
+    name={name}
+    email={email}
+    image={image}
+    cp={cpEn}
+    formations={formations}
+    preferencesArea={preferencesArea}
+    teamMemberIndex={teamMemberIndex}
+  />
 </Layout>
