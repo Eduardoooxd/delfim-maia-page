@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   if (isProduction) {
     // Force the delay of request to CMS to wait 30 seconds because CMS takes some seconds to refresh data.
-    await delay(30000);
+    await delay(10000);
   }
 
   const { results } = await fetch(
