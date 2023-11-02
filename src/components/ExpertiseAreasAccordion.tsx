@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useRef } from "react";
 
 interface ExpertiseArea {
   areaPt: string;
@@ -64,13 +65,27 @@ const ExpertiseAreasAccordionItem = ({
   description: string;
   index: number;
 }) => {
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const handleClickScroll = () => {
+    if (triggerRef.current) {
+      const triggerButton = triggerRef.current;
+
+      triggerButton.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   return (
     <>
       <AccordionItem
         className="bg-[rgba(148_12_0_/_75%)] border-none"
         value={`item-${index}`}
       >
-        <AccordionTrigger className="font-bold text-lg text-white px-8 drop-shadow-text-outline text-start">
+        <AccordionTrigger
+          ref={triggerRef}
+          onClick={handleClickScroll}
+          className="font-bold text-lg text-white px-8 drop-shadow-text-outline text-start"
+        >
           {area}
         </AccordionTrigger>
         <AccordionContent className="bg-[rgba(192_193_196/_95%)] pt-4 px-8">
