@@ -12,13 +12,9 @@ const { title, address, telephone } = translationContent.contacts;
 
 <section id="contacts" class="h-full overflow-hidden">
   <SectionTitle>{title}</SectionTitle>
-  <article
-    class="w-full h-full sm:min-h-[48rem] p-8 sm:px-24 flex justify-center items-center"
-  >
-    <div
-      class="grid place-content-center gap-8 sm:gap-24 grid-cols-1 sm:grid-cols-2"
-    >
-      <div class="flex flex-col gap-8 h-full order-last sm:order-first">
+  <article class="w-full h-full p-8 sm:p-24 flex justify-center items-center">
+    <div class="grid place-content-center gap-8 sm:gap-24">
+      <div class="flex gap-8 flex-col sm:flex-row items-start sm:items-center">
         <ContactInfo title={`${address.title}:`}>
           <Home class="text-white" slot="contact-info-icon" />
           <div slot="contact-info-description">
@@ -36,9 +32,6 @@ const { title, address, telephone } = translationContent.contacts;
             </a>
           </div>
         </ContactInfo>
-        <ContactMapEmbeded />
-      </div>
-      <div class="flex flex-col gap-8 h-full flex-1">
         <ContactInfo title={`${telephone.title}:`}>
           <Smartphone class="text-white" slot="contact-info-icon" />
           <div slot="contact-info-description">
@@ -67,6 +60,7 @@ const { title, address, telephone } = translationContent.contacts;
           </div>
         </ContactInfo>
       </div>
+      <ContactMapEmbeded />
     </div>
   </article>
 </section>

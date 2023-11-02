@@ -1,7 +1,6 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Navbar from "@/components/Navbar.tsx";
-import PageBackground from "@/components/PageBackground.astro";
 import { getLangFromUrl } from "@/i18n/utils";
 
 type Props = {
@@ -25,8 +24,7 @@ const { revealNavbarOnScroll } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Delfim Maia</title>
   </head>
-  <body class="h-full">
-    <PageBackground />
+  <body class="h-full bg-background">
     <Navbar client:load language={lang} revealNavbar={revealNavbarOnScroll} />
     <slot />
     <Footer />

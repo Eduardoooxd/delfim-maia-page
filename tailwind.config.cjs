@@ -13,7 +13,11 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+
     extend: {
+      minHeight: {
+        "screen-without-nav": "calc(100vh - var(--navbar-height))",
+      },
       colors: {
         "delfim-primary": "hsl(var(--delfim-primary))",
         border: "hsl(var(--border))",

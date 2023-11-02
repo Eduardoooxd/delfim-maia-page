@@ -131,7 +131,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
   return (
     <nav
       className={cn(
-        "fixed z-[100] top-0 left-0 w-full bg-white py-2 flex flex-col gap-4 transition-opacity duration-300 ease-in",
+        "fixed z-[100] top-0 left-0 w-full bg-white py-2 flex flex-col gap-4 transition-opacity duration-300 ease-in shadow",
         opacityToDisplay,
         `${mobileMenuOpen ? "min-h-screen" : ""}`,
       )}
