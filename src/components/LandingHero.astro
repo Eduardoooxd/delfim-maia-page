@@ -3,6 +3,7 @@ import { getLangFromUrl } from "@/i18n/utils";
 import LogoImage from "@/images/logo.webp";
 import { Image } from "astro:assets";
 import LanguagePicker from "./LanguagePickerHero.astro";
+import BorderRadius from "@/images/border-radius.svg";
 
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -36,4 +37,7 @@ const lang = getLangFromUrl(Astro.url);
       )
     }
   </section>
+  <div class="absolute bottom-0 right-0">
+    <Image src={BorderRadius} alt="" />
+  </div>
 </section>
