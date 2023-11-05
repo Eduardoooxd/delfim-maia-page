@@ -75,7 +75,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ["Garet", ...defaultTheme.fontFamily.sans],
+        sans: ["Plus Jakarta Sans Variable", ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
         "team-cards-columns": "repeat(auto-fit, minmax(21.25rem, 1fr))",
