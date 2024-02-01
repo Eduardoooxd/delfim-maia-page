@@ -1,14 +1,12 @@
 ---
-import "@fontsource-variable/plus-jakarta-sans";
-import "@/styles/globals.css";
 import Footer from "@/components/Footer.astro";
 import Navbar from "@/components/Navbar.tsx";
 import { getLangFromUrl } from "@/i18n/utils";
-import WebsiteBackground from "@/images/delfim_maia_background.webp";
+import "@/styles/globals.css";
+import "@fontsource-variable/plus-jakarta-sans";
 
 type Props = {
   revealNavbarOnScroll: boolean;
-  showBackgroundImage?: boolean;
 };
 
 const lang = getLangFromUrl(Astro.url);
@@ -28,16 +26,7 @@ const { revealNavbarOnScroll, showBackgroundImage } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Delfim Maia</title>
   </head>
-  <body class="h-full relative">
-    {
-      showBackgroundImage ? (
-        <div
-          class="absolute inset-0 bg-repeat z-[-20]"
-          style={{ backgroundImage: `url(${WebsiteBackground.src})` }}
-        />
-      ) : null
-    }
-
+  <body class="h-full relative bg-[#f3f4f6]">
     <Navbar client:load language={lang} revealNavbar={revealNavbarOnScroll} />
     <slot />
     <Footer />
