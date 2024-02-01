@@ -1,6 +1,6 @@
 import { languages, type TRANSLATIONS_TYPE } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
-import LogoImage from "@/images/logo.webp";
+import LogoImage from "@/images/logo.svg";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -133,7 +133,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
       className={cn(
         "fixed z-[100] top-0 left-0 w-full bg-white py-2 flex flex-col gap-4 transition-opacity duration-300 ease-in shadow",
         opacityToDisplay,
-        `${mobileMenuOpen ? "min-h-screen" : ""}`,
+        `${mobileMenuOpen ? "min-h-d-screen" : ""}`,
       )}
     >
       <div className="flex justify-between gap-4 items-center">

@@ -1,10 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import SectionTitle from "./SectionTitle.astro";
-import ExpertiseAreasIllustration from "@/assets/images/expertise-areas-illustration.webp";
-import ExpertiseAreasAccordion from "./ExpertiseAreasAccordion";
+import ExpertiseAreasIllustration from "@/assets/images/expertise-areas.jpeg";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { delay } from "@/utils/utils";
+import { Image } from "astro:assets";
+import ExpertiseAreasAccordion from "./ExpertiseAreasAccordion";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);

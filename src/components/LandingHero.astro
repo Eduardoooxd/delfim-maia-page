@@ -1,27 +1,27 @@
 ---
 import { getLangFromUrl } from "@/i18n/utils";
-import HeroBackgroundImage from "@/images/hero-image.jpeg";
-import LogoImage from "@/images/logo.webp";
+import HeroBackgroundImage from "@/images/hero-image.png";
+import LogoImage from "@/images/logo.svg";
 import { Image } from "astro:assets";
 import LanguagePicker from "./LanguagePickerHero.astro";
 
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<section class="min-h-screen p-8 sm:p-20 grid grid-cols-2 grid-rows-2 relative">
+<section
+  class="min-h-d-screen p-8 sm:p-20 grid grid-cols-2 grid-rows-2 relative"
+>
   <Image
-    class="absolute -z-10 inset-0 min-h-full w-full object-cover"
+    class="absolute -z-10 inset-0 min-h-full w-full"
     src={HeroBackgroundImage}
-    alt="Image do logo de Delfim Maia"
+    alt="Background image of landing hero hero"
   />
   <LanguagePicker />
   <Image
     width={300}
     height={234}
     src={LogoImage}
-    alt={`${
-      lang === "pt" ? "Image do logo de Delfim Maia" : "Logo of Delfim Maia"
-    }`}
+    alt={`${lang === "pt" ? "Logo de Delfim Maia" : "Logo of Delfim Maia"}`}
   />
   <div></div>
   <div class="hidden sm:block"></div>
