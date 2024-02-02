@@ -3,19 +3,17 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { Copyright } from "lucide-astro";
 import LanguagePickerMobile from "./LanguagePickerMobile.astro";
 
-const currentYear = new Date().getFullYear();
-
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
 const { title, copyrightText, terms, policies } = translationContent.footer;
 ---
 
 <footer
-  class="py-4 px-8 sm:px-24 bg-delfim-primary flex flex-col sm:flex-row sm:justify-between sm:items-center text-white text-xs gap-6 w-full sm:font-bold"
+  class="py-4 px-8 sm:px-24 bg-[#f2f2f2] flex flex-col sm:flex-row sm:justify-between sm:items-center text-xs gap-6 w-full sm:font-bold"
 >
   <div class="flex gap-1 items-center order-last sm:order-first">
     <Copyright />
-    <p>{copyrightText} | {currentYear}</p>
+    <p>{copyrightText}</p>
   </div>
   <div
     class="flex flex-col sm:flex-row gap-4 sm:gap-20 sm:items-center sm:justify-between"
