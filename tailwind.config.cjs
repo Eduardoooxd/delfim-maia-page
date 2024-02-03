@@ -78,6 +78,7 @@ module.exports = {
         sans: ["Plus Jakarta Sans Variable", ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
+        "section-page-columns": "6fr 4fr",
         "team-cards-columns": "repeat(auto-fit, minmax(21.25rem, 1fr))",
       },
       dropShadow: {

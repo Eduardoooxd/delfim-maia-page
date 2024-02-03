@@ -9,16 +9,15 @@ const { title, valuesTitle, historyText, valuesText } =
   translationContent.aboutUs;
 ---
 
-<section
-  id="history"
-  class="w-full min-h-d-screen flex gap-4 sm:gap-8 pl-20 py-20"
->
-  <div class="border-l-[3px] border-delfim-primary flex gap-20">
-    <article class="pt-4 pl-4 flex flex-col gap-6 max-w-4xl">
+<section id="history" class="w-full min-h-d-screen p-4 md:pl-20 md:py-20">
+  <div
+    class="border-l-[3px] border-delfim-primary grid md:grid-cols-section-page-columns gap-20"
+  >
+    <article class="md:pt-4 pl-4 flex flex-col gap-6 w-full">
       <div class="flex flex-col gap-2">
         <h5 class="uppercase text-2xl font-bold">{title}</h5>
 
-        <div>
+        <div class="flex flex-col gap-2 md:gap-0">
           {
             historyText.map((text) => (
               <p class="text-base sm:text-lg">{text}</p>
@@ -29,14 +28,15 @@ const { title, valuesTitle, historyText, valuesText } =
 
       <div class="flex flex-col">
         <h6 class="uppercase text-lg font-bold">{valuesTitle}</h6>
-        <div>
+        <div class="flex flex-col gap-2 md:gap-0">
           {valuesText.map((text) => <p class="text-base sm:text-lg">{text}</p>)}
         </div>
       </div>
     </article>
-    <div>
+
+    <div class="hidden sm:block">
       <Image
-        class="hidden sm:block"
+        class="hidden sm:block w-full h-full"
         alt="Ilustração da História de Delfim Maia"
         src={HistoryIllustrationImage}
       />
