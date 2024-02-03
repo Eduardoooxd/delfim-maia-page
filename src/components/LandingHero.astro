@@ -1,7 +1,8 @@
 ---
 import { getLangFromUrl } from "@/i18n/utils";
+import HeroBackgroundMobileImage from "@/images/hero-image-mobile.jpeg";
 import HeroBackgroundImage from "@/images/hero-image.png";
-import LogoImage from "@/images/logo.svg";
+import LogoImage from "@/images/logo.png";
 import { Image } from "astro:assets";
 import LanguagePicker from "./LanguagePickerHero.astro";
 
@@ -9,13 +10,20 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <section
-  class="min-h-d-screen p-8 sm:p-20 grid grid-cols-2 grid-rows-2 relative"
+  class="min-h-d-screen p-8 sm:p-16 grid grid-cols-2 grid-rows-2 relative"
 >
   <Image
-    class="absolute -z-10 inset-0 min-h-full w-full"
+    class="hidden absolute -z-10 inset-0 w-full h-full md:block"
     src={HeroBackgroundImage}
-    alt="Background image of landing hero hero"
+    alt="Background of landing hero"
   />
+
+  <Image
+    class="absolute -z-10 inset-0 w-full h-full md:hidden"
+    src={HeroBackgroundMobileImage}
+    alt="Background of landing hero"
+  />
+
   <LanguagePicker />
   <Image
     width={300}
@@ -30,15 +38,45 @@ const lang = getLangFromUrl(Astro.url);
   >
     {
       lang === "pt" ? (
-        <p class="text-right text-balance text-2xl sm:text-3xl w-full max-w-xl">
-          Mais de 40 anos <br /> a estudar o direito, <br /> a lutar pela
-          justiça <br class="hidden sm:block" /> e criar relações de confiança!
+        <p class="text-right tracking-wider">
+          <span class="text-base sm:text-lg">Mais de</span>
+          <span class="text-xl sm:text-2xl font-semibold">40 anos</span>
+          <br />
+          <span class="text-base sm:text-lg">a</span>
+          <span class="text-xl sm:text-2xl font-semibold">estudar</span>
+          <span class="text-base sm:text-lg">o</span>
+          <span class="text-xl sm:text-2xl font-semibold">direito,</span>
+          <br />
+          <span class="text-base sm:text-lg">a</span>
+          <span class="text-xl sm:text-2xl font-semibold">lutar</span>
+          <span class="text-base sm:text-lg">pela</span>
+          <span class="text-xl sm:text-2xl font-semibold">justiça</span>
+          <span class="text-base sm:text-lg">e a</span>
+          <br />
+          <span class="text-base sm:text-lg">criar</span>
+          <span class="text-xl sm:text-2xl font-semibold">relações</span>
+          <span class="text-base sm:text-lg">de</span>
+          <span class="text-xl sm:text-2xl font-semibold">confiança.</span>
         </p>
       ) : (
-        <p class="text-right text-balance text-2xl sm:text-3xl w-full max-w-xl">
-          More than 40 years <br /> studying law, <br /> fighting for justice,
-          <br class="hidden sm:block" /> and building trusting relationships!
-        </p>
+        <>
+          <p class="text-right tracking-wider">
+            <span class="text-base sm:text-lg">More than</span>
+            <span class="text-xl sm:text-2xl font-semibold">40 years</span>
+            <br />
+            <span class="text-xl sm:text-2xl font-semibold">studying law,</span>
+            <br />
+            <span class="text-xl sm:text-2xl font-semibold">fighting</span>
+            <span class="text-base sm:text-lg">for</span>
+            <span class="text-xl sm:text-2xl font-semibold">justice</span>
+            <span class="text-base sm:text-lg">and</span>
+            <br />
+            <span class="text-base sm:text-lg">building</span>
+            <span class="text-xl sm:text-2xl font-semibold">
+              trusting relationships.
+            </span>
+          </p>
+        </>
       )
     }
   </section>
