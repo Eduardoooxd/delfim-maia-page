@@ -1,9 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-import SectionTitle from "./SectionTitle.astro";
-import TeamMemberCard from "./TeamMemberCard.astro";
-import type { TeamMember } from "../types/TeamMember";
 import { delay } from "@/utils/utils";
+import type { TeamMember } from "../types/TeamMember";
+import TeamMemberCard from "./TeamMemberCard.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
@@ -27,11 +26,8 @@ const { results } = await fetch(
 const teamMembers: TeamMember[] = results[0].data.teamMembers;
 ---
 
-<section id="team" class="flex flex-col bg-white">
-  <SectionTitle>{title}</SectionTitle>
-  <article
-    class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
-  >
+<section id="team" class="min-h-d-screen">
+  <article class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
     {
       teamMembers.map((teamMember, index) => (
         <TeamMemberCard teamMemberIndex={index} {...teamMember} />

@@ -1,9 +1,9 @@
 ---
+import { TEAM_MEMBER_BACKGROUNDS_COLORS } from "@/components/data";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { Image } from "astro:assets";
-import { TEAM_MEMBER_BACKGROUNDS_COLORS } from "@/components/data";
-import { cn } from "@/lib/utils";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 type Props = {
   name: string;
@@ -52,10 +52,8 @@ const {
         src={image}
       />
     </div>
-    <div class="p-2 bg-white sm:bg-transparent sm:p-0 h-full relative">
-      <div
-        class="rounded-md bg-white h-full p-2 sm:p-4 flex flex-col gap-6 sm:gap-14"
-      >
+    <div class="p-2 sm:bg-transparent sm:p-0 h-full relative">
+      <div class="rounded-md h-full p-2 sm:p-4 flex flex-col gap-6 sm:gap-14">
         <h6 class="text-xl capitalize font-bold">
           {name}
         </h6>

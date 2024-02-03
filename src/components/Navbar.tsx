@@ -1,6 +1,6 @@
 import { languages, type TRANSLATIONS_TYPE } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
-import LogoImage from "@/images/logo.svg";
+import LogoImage from "@/images/logo.png";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -35,7 +35,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
 
     const { scrollY, screenY } = window;
 
-    if (screenY > 500 || scrollY > 500) {
+    if (screenY > 300 || scrollY > 300) {
       setOpacityToDisplay("opacity-100");
       return;
     }
@@ -160,7 +160,6 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
               </a>
             ))}
           </section>
-          <div className="border-b-4 border-navbar-border"></div>
         </section>
 
         <section className="lg:hidden px-8">

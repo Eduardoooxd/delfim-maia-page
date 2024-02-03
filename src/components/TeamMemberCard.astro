@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
-import { cn } from "@/lib/utils";
-import type { TeamMember } from "../types/TeamMember";
 import { getLangFromUrl } from "@/i18n/utils";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import type { TeamMember } from "../types/TeamMember";
 import { TEAM_MEMBER_BACKGROUNDS_COLORS } from "./data";
 
 type Props = TeamMember & {
@@ -30,14 +30,14 @@ const { imageBackground, textBackground, hoverImageBackground } =
 
 <a
   class={cn(
-    "block relative w-full transition-colors ease-in-out duration-300",
+    "block relative w-full transition-colors ease-in-out duration-300 h-[36rem]",
     imageBackground,
     hoverImageBackground,
     className,
   )}
   href={`/${lang}/team/${teamMemberId}`}
 >
-  <Image width={720} height={1080} alt="" class="h-auto w-full" src={image} />
+  <Image width={300} height={520} alt="" src={image} />
   <div
     class={cn(
       "absolute bottom-5 right-0 text-white py-2 min-w-[50%] w-fit flex justify-end",

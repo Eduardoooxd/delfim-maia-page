@@ -1,17 +1,17 @@
 ---
+import AboutUs from "@/components/AboutUs.astro";
+import Contacts from "@/components/ContactSection/Contacts.astro";
+import ExpertiseAreas from "@/components/ExpertiseAreas.astro";
 import LandingHero from "@/components/LandingHero.astro";
+import TeamSection from "@/components/TeamSection.astro";
 import "@/styles/globals.css";
 import Layout from "../../layouts/Layout.astro";
-import History from "@/components/History.astro";
-import TeamSection from "@/components/TeamSection.astro";
-import ExpertiseAreas from "@/components/ExpertiseAreas.astro";
-import Contacts from "@/components/Contacts.astro";
 ---
 
-<Layout showBackgroundImage revealNavbarOnScroll>
+<Layout revealNavbarOnScroll>
   <main class="h-full flex flex-col">
     <LandingHero />
-    <History />
+    <AboutUs />
     <TeamSection />
     <ExpertiseAreas />
     <Contacts />

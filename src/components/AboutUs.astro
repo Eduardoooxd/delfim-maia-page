@@ -1,0 +1,29 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import HistoryIllustrationImage from "@/images/history-illustration.jpeg";
+import { Image } from "astro:assets";
+
+const lang = getLangFromUrl(Astro.url);
+const translationContent = useTranslations(lang);
+const { title, subTitle, historyText } = translationContent.history;
+---
+
+<section
+  id="history"
+  class="w-full min-h-d-screen flex gap-4 sm:gap-8 pl-20 py-20"
+>
+  <div class="border-l-[3px] border-delfim-primary flex gap-20">
+    <article class="pt-4 pl-4 flex flex-col gap-4 max-w-4xl">
+      <h5 class="uppercase text-3xl">Sobre nós</h5>
+
+      {historyText.map((text) => <p class="text-sm sm:text-xl ">{text}</p>)}
+    </article>
+    <div>
+      <Image
+        class="hidden sm:block h-full w-full"
+        alt="Ilustração da História de Delfim Maia"
+        src={HistoryIllustrationImage}
+      />
+    </div>
+  </div>
+</section>
