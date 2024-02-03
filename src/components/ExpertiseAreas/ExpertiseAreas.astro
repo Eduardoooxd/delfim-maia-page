@@ -3,6 +3,7 @@ import ExpertiseAreasIllustration from "@/assets/images/expertise-areas.jpeg";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { delay } from "@/utils/utils";
 import { Image } from "astro:assets";
+import SectionTitle from "../ui/SectionTitle.astro";
 import ExpertiseAreasAccordion from "./ExpertiseAreasAccordion";
 
 const lang = getLangFromUrl(Astro.url);
@@ -26,34 +27,19 @@ const { results } = await fetch(
 const areas = results[0].data.expertiseAreas;
 ---
 
+<section class="pt-4 px-4 text-center md:pt-20 md:px-20 md:pb-8">
+  <SectionTitle>{title}</SectionTitle>
+</section>
+
 <section
   id="expertise-areas"
-  class="h-screen relative flex flex-col gap-2 sm:gap-10"
+  class="relative flex flex-col gap-2 sm:gap-10 min-h-screen"
 >
   <Image
-    class="absolute max-h-full -z-10 inset-0 min-h-full w-full object-cover hidden sm:block"
+    class="absolute h-screen -z-10 inset-0 w-full object-cover hidden sm:block"
     src={ExpertiseAreasIllustration}
     alt="Image do logo de Delfim Maia"
   />
-
-  <div class={"w-full bg-delfim-primary py-1 px-8 sm:hidden"}>
-    <h5 class="uppercase font-bold text-white text-4xl text-center">
-      {title}
-    </h5>
-  </div>
-
-  <div class={"hidden sm:flex w-fit relative top-4 text-right gap-1"}>
-    <div class="bg-delfim-primary pl-20 py-2 pr-2">
-      <h5 class="uppercase font-bold text-white text-4xl text-center">
-        {lang === "pt" ? "Áreas" : "Areas"}
-      </h5>
-    </div>
-    <div class="py-2">
-      <h5 class="uppercase font-bold text-white text-4xl text-center">
-        {lang === "pt" ? "de atuacão" : "of practice"}
-      </h5>
-    </div>
-  </div>
 
   <ExpertiseAreasAccordion
     currentLanguage={lang}

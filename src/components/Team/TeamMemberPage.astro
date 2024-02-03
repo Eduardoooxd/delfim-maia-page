@@ -2,7 +2,7 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { Image } from "astro:assets";
+import RoundedCorner from "../ui/RoundedCorner.astro";
 
 type Props = {
   name: string;
@@ -16,12 +16,21 @@ type Props = {
     preferenceaAreaItem: string;
   }[];
   teamMemberIndex: number;
+  role: string;
 };
 
-const { name, email, image, cp, formations, preferencesArea, teamMemberIndex } =
-  Astro.props;
+const {
+  name,
+  email,
+  image,
+  cp,
+  formations,
+  preferencesArea,
+  teamMemberIndex,
+  role,
+} = Astro.props;
 
-const { imageBackground } =
+const { teamPageBackground: fillBackground } =
   TEAM_MEMBER_BACKGROUNDS_COLORS[
     teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
   ];
@@ -38,75 +47,62 @@ const {
 } = translationContent.teamMemberPage;
 ---
 
-<main class="h-full flex flex-col gap-4 mt-[5.875rem]">
-  <section
-    class="relative w-full grid grid-cols-1 sm:grid-cols-[22.5rem_1fr] min-h-[calc(100vh-9.375rem)]"
-  >
-    <div class={cn("flex items-end justify-center", imageBackground)}>
-      <Image
-        width={300}
-        height={450}
-        alt=""
-        class="h-auto w-full"
-        src={image}
-      />
-    </div>
-    <div class="p-2 sm:bg-transparent sm:p-0 h-full relative">
-      <div class="rounded-md h-full p-2 sm:p-4 flex flex-col gap-6 sm:gap-14">
-        <h6 class="text-xl capitalize font-bold">
-          {name}
-        </h6>
-        <a target="_blank" href=`mailto:${email}`>
-          <p class="text-lg">
-            <b>{emailText}: {" "}</b>
-            <span class="underline"> {email}</span>
-          </p>
-        </a>
-        {
-          cp ? (
-            <p class="text-lg capitalize">
-              <b>{professionalLicense}: </b> {cp}
-            </p>
-          ) : null
-        }
-        {
-          formations && formations?.length > 0 ? (
-            <div class="flex flex-col gap-2 capitalize">
-              <p class="text-lg">
-                <b>{education}: </b>
-              </p>
-              <ul class="flex flex-col gap-2 px-8">
-                {formations?.map((formation) => (
-                  <li class="text-base list-disc">{formation.formationItem}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null
-        }
-        {
-          preferencesArea && preferencesArea.length > 0 ? (
-            <div class="flex flex-col gap-2 capitalize">
-              <p class="text-lg">
-                <b>{areasOfPractice}: </b>
-              </p>
-              <ul class="flex flex-col gap-2 px-8">
-                {preferencesArea?.map((preferenceArea) => (
-                  <li class="text-base list-disc">
-                    {preferenceArea.preferenceaAreaItem}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null
-        }
+<main class="h-[calc(100vh-6.25rem)] mt-[6.25rem] bg-[#E6E7E9]">
+  <section class="relative w-full px-24 py-12 h-full">
+    <div class="flex flex-col gap-6">
+      <h6 class="text-4xl capitalize font-bold">
+        {name}
+      </h6>
 
-        <a
-          class="inline-flex sm:absolute sm:right-4 sm:bottom-4 items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-fit mx-auto bg-delfim-primary"
-          href={`/${activeLang}#team`}
-        >
-          {goBackText}</a
-        >
-      </div>
+      <p class="text-lg font-bold">{role}</p>
+
+      <a target="_blank" href=`mailto:${email}`>
+        <p class="text-lg">
+          <b>{emailText}: {" "}</b>
+          <span class="underline"> {email}</span>
+        </p>
+      </a>
+      {
+        cp ? (
+          <p class="text-lg capitalize">
+            <b>{professionalLicense}: </b> {cp}
+          </p>
+        ) : null
+      }
+      {
+        formations && formations?.length > 0 ? (
+          <div class="flex flex-col gap-6 capitalize">
+            <p class="text-lg">
+              <b>{education}: </b>
+            </p>
+            <ul class="flex flex-col gap-2 px-8">
+              {formations?.map((formation) => (
+                <li class="text-base list-disc">{formation.formationItem}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null
+      }
+      {
+        preferencesArea && preferencesArea.length > 0 ? (
+          <div class="flex flex-col gap-6 capitalize">
+            <p class="text-lg">
+              <b>{areasOfPractice}: </b>
+            </p>
+            <ul class="flex flex-col gap-2 px-8">
+              {preferencesArea?.map((preferenceArea) => (
+                <li class="text-base list-disc">
+                  {preferenceArea.preferenceaAreaItem}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null
+      }
+    </div>
+
+    <div class="absolute left-1/4 right-0 bottom-0">
+      <RoundedCorner className={cn(fillBackground)} />
     </div>
   </section>
 </main>

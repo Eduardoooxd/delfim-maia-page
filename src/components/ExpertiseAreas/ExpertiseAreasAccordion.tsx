@@ -23,7 +23,7 @@ export default function ExpertiseAreasAccordion({
   currentLanguage,
 }: ExpertiseAreasAccordionProps) {
   return (
-    <section className="z-50 w-full sm:w-1/2 sm:self-end">
+    <section className="p-4 z-50 w-full sm:w-1/2 sm:self-end">
       <Accordion
         type="single"
         defaultValue="item-0"
@@ -88,7 +88,7 @@ const ExpertiseAreasAccordionItem = ({
         >
           {area}
         </AccordionTrigger>
-        <AccordionContent className="bg-[rgba(192_193_196/_95%)] pt-4 px-8">
+        <AccordionContent className="bg-[rgba(192_193_196/_95%)] pt-4 px-4 w-full">
           {description}
         </AccordionContent>
       </AccordionItem>

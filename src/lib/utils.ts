@@ -6,68 +6,68 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const TEAM_MEMBER_BACKGROUNDS_COLORS: {
-  imageBackground: string;
-  textBackground: string;
-  hoverImageBackground: string;
+  cardBackground: string;
+  hoverCardBackground: string;
+  teamPageBackground: string;
 }[] = [
   {
-    imageBackground: "bg-[#d9d9d9]",
-    textBackground: "bg-[#4b3f3f]",
-    hoverImageBackground: "hover:bg-[#898989]",
+    cardBackground: "bg-[#CCCCCC]",
+    teamPageBackground: "fill-[#970505]",
+    hoverCardBackground: "hover:bg-[#898989]",
   },
   {
-    imageBackground: "bg-[#697a7f]",
-    textBackground: "bg-[#697a7f]",
-    hoverImageBackground: "hover:bg-[#525f63]",
+    cardBackground: "bg-[#96A8AD]",
+    teamPageBackground: "fill-[#75868A]",
+    hoverCardBackground: "hover:bg-[#525f63]",
   },
   {
-    imageBackground: "bg-[#a9afbb]",
-    textBackground: "bg-[#a9afbb]",
-    hoverImageBackground: "hover:bg-[#93979e]",
+    cardBackground: "bg-[#A9AFBB]",
+    teamPageBackground: "fill-[#868FA0]",
+    hoverCardBackground: "hover:bg-[#93979e]",
   },
   {
-    imageBackground: "bg-[#bd9084]",
-    textBackground: "bg-[#bd9084]",
-    hoverImageBackground: "hover:bg-[#c17763]",
+    cardBackground: "bg-[#D2BDB7]",
+    teamPageBackground: "fill-[#896F68i]",
+    hoverCardBackground: "hover:bg-[#c17763]",
   },
   {
-    imageBackground: "bg-[#b1ced1]",
-    textBackground: "bg-[#697a7f]",
-    hoverImageBackground: "hover:bg-[#84cad1]",
+    cardBackground: "bg-[#ABC9CC]",
+    teamPageBackground: "fill-[#5E7C7E]",
+    hoverCardBackground: "hover:bg-[#84cad1]",
   },
   {
-    imageBackground: "bg-[#ebcfbd]",
-    textBackground: "bg-[#ebcfbd]",
-    hoverImageBackground: "hover:bg-[#e19767]",
+    cardBackground: "bg-[#ebcfbd]",
+    teamPageBackground: "fill-[#805850]",
+    hoverCardBackground: "hover:bg-[#e19767]",
   },
   {
-    imageBackground: "bg-[#cbaabd]",
-    textBackground: "bg-[#cbaabd]",
-    hoverImageBackground: "hover:bg-[#c979a7]",
+    cardBackground: "bg-[#FAE7F2]",
+    teamPageBackground: "fill-[#C7AEBC]",
+    hoverCardBackground: "hover:bg-[#c979a7]",
   },
   {
-    imageBackground: "bg-[#b3c1b6]",
-    textBackground: "bg-[#b3c1b6]",
-    hoverImageBackground: "hover:bg-[#89ba94]",
+    cardBackground: "bg-[#AEBCB1]",
+    teamPageBackground: "fill-[#707A72]",
+    hoverCardBackground: "hover:bg-[#89ba94]",
   },
   {
-    imageBackground: "bg-[#cccfff]",
-    textBackground: "bg-[#cccfff]",
-    hoverImageBackground: "hover:bg-[#8990ff]",
+    cardBackground: "bg-[#D3D5EC]",
+    teamPageBackground: "fill-[#85889F]",
+    hoverCardBackground: "hover:bg-[#8990ff]",
   },
   {
-    imageBackground: "bg-[#d5a38f]",
-    textBackground: "bg-[#d5a38f]",
-    hoverImageBackground: "hover:bg-[#ce8163]",
+    cardBackground: "bg-[#BAA4A9]",
+    teamPageBackground: "fill-[#9C7D84]",
+    hoverCardBackground: "hover:bg-[#ce8163]",
   },
   {
-    imageBackground: "bg-[#dfdaa9]",
-    textBackground: "bg-[#dfdaa9]",
-    hoverImageBackground: "hover:bg-[#d7cd6c]",
+    cardBackground: "bg-[#FCD4DC]",
+    teamPageBackground: "fill-[#803340]",
+    hoverCardBackground: "hover:bg-[#d7cd6c]",
   },
   {
-    imageBackground: "bg-[#c67f78]",
-    textBackground: "bg-[#bd9084]",
-    hoverImageBackground: "hover:bg-[#c26157]",
+    cardBackground: "bg-[#E6E7E9]",
+    teamPageBackground: "fill-[#30406A]",
+    hoverCardBackground: "hover:bg-[#c26157]",
   },
 ];

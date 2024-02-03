@@ -93,7 +93,12 @@ export const translations: translations_interface = {
         "The spirit of teamwork and collaboration that unites us also allows for the exchange of experiences and debate that are essential for us to seek the best response to the requests we receive on a daily basis.",
       ],
       valuesTitle: "Our Values",
-      valuesText: [],
+      valuesText: [
+        "The guiding values of our daily activity, in order to prevent or solve problems for our clients, are professional independence, integrity, quality of service, technical competence, combativeness, audacity and dedication.",
+        "Our activity focuses on litigation in court, where we have decades of accumulated experience, along with direct advice to clients, both individuals and companies, whose contact and knowledge allows us to invest in the prevention of disputes, conciliation and prior advice to business and strategic decisions with patrimonial, commercial or personal repercussions.",
+        "Aware that we cannot dominate all areas, we are committed to complementarity, developing some partnerships that have allowed us to provide a cohesive and articulated response, with specialists we trust, who share the same work values.",
+        "The team spirit and collaboration that unites us also allows for the exchange of experiences and debate, which are essential for us to seek the best response to the requests made to us on a daily basis.",
+      ],
     },
     team: {
       title: "Team",

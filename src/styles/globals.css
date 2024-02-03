@@ -90,15 +90,15 @@
     --delfim-primary: 0 94% 31%;
     --delfim-primary-transparency: 148 12 0 / 70%;
   }
-}
 
-.min-h-d-screen {
-  min-height: 100vh;
-  min-height: 100svh;
-}
+  .min-h-d-screen {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
 
-.text-balance {
-  text-wrap: balance;
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
 @layer base {

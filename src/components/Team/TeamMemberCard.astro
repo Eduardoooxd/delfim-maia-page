@@ -21,39 +21,33 @@ const {
   teamMemberIndex,
 } = Astro.props;
 
-const { imageBackground, textBackground, hoverImageBackground } =
+const { cardBackground, hoverCardBackground } =
   TEAM_MEMBER_BACKGROUNDS_COLORS[
     teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
   ];
+
+const invertString = (str: string) => {
+  return str.split("").reverse().join("");
+};
 ---
 
 <a
   class={cn(
-    "block relative w-full transition-colors ease-in-out duration-300 h-[36rem]",
-    imageBackground,
-    hoverImageBackground,
+    "block w-full transition-colors ease-in-out duration-300 h-[36rem] p-4 relative",
+    cardBackground,
+    hoverCardBackground,
     className,
   )}
   href={`/${lang}/team/${teamMemberId}`}
 >
-  <Image width={300} height={520} alt="" src={image} />
   <div
-    class={cn(
-      "absolute bottom-5 right-0 text-white py-2 min-w-[50%] w-fit flex justify-end",
-      textBackground,
-    )}
+    class="absolute left-2 bottom-4 [writing-mode:vertical-rl] tracking-wider -rotate-180"
   >
-    <div
-      class={cn(
-        "text-sm w-fit pl-3 text-right capitalize text-shadow-sm shadow-slate-600",
-      )}
-    >
-      <h6 class="text-sm border-b pr-2 font-semibold">
-        {name}
-      </h6>
-      <hr />
+    <h6 class="text-lg font-bold">{name}</h6>
+    <p class="text-sm font-bold">{lang === "en" ? roleEn : rolePt}</p>
+  </div>
 
-      <p class="text-sm pr-2">{lang === "en" ? roleEn : rolePt}</p>
-    </div>
+  <div class="absolute right-4 bottom-0 h-[95%]">
+    <Image class="max-h-full" width={300} height={520} alt={name} src={image} />
   </div>
 </a>

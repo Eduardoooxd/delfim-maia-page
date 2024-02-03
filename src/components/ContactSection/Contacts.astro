@@ -12,8 +12,8 @@ const translationContent = useTranslations(lang);
 const { title, address, telephone } = translationContent.contacts;
 ---
 
-<section class="p-20 flex flex-col gap-16" id="contacts">
-  <SectionTitle>{title}</SectionTitle>
+<section class="p-4 md:py-16 md:px-20 flex flex-col gap-16" id="contacts">
+  <SectionTitle className="text-center">{title}</SectionTitle>
 
   <article class="flex justify-between gap-4 flex-col sm:flex-row">
     <ContactInfo title={`${address.title}:`}>
@@ -32,7 +32,7 @@ const { title, address, telephone } = translationContent.contacts;
           class="hover:underline"
           rel="noopener noreferrer"
         >
-          <p class="text-xl text-center">
+          <p class="text-base md:text-xl text-center">
             Av. Dr. Artur da Cunha Araújo, 317
             <br />
              4480-667 Vila do Conde
@@ -56,7 +56,7 @@ const { title, address, telephone } = translationContent.contacts;
           class="hover:underline"
           href="mailto:geral@delfimmaia.pt"
         >
-          <p class="text-xl text-center">geral@delfimmaia.pt</p>
+          <p class="text-base md:text-xl text-center">geral@delfimmaia.pt</p>
         </a>
       </div>
     </ContactInfo>
@@ -72,7 +72,7 @@ const { title, address, telephone } = translationContent.contacts;
       />
       <div slot="contact-info-description" class="text-center">
         <a target="_blank" class="hover:underline" href="tel:+351 252 640 720">
-          <p class="text-xl">252 640 720</p>
+          <p class="text-base md:text-xl">252 640 720</p>
         </a>
 
         <p class="text-sm">{telephone.information}</p>
