@@ -1,4 +1,4 @@
-import type { NavLink } from "@/components/Navbar";
+import type { NavLink } from "@/components/Layout/Navbar";
 
 export const languages = {
   pt: "Português",

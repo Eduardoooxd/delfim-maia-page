@@ -4,7 +4,7 @@ import LogoImage from "@/images/logo.png";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export interface NavLink {
   title: string;
@@ -114,7 +114,9 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
       document.body.style.overflow = "hidden";
     }
 
-    return () => (document.body.style.overflow = originalStyle);
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
   }, [mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
@@ -133,7 +135,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
       className={cn(
         "fixed z-[100] top-0 left-0 w-full bg-white py-2 flex flex-col gap-4 transition-opacity duration-300 ease-in shadow",
         opacityToDisplay,
-        `${mobileMenuOpen ? "min-h-d-screen" : ""}`,
+        `${mobileMenuOpen ? "min-h-screen" : ""}`,
       )}
     >
       <div className="flex justify-between gap-4 items-center">
