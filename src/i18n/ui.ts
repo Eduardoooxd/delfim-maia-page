@@ -134,7 +134,7 @@ export const translations: translations_interface = {
   pt: {
     navlinks: [
       {
-        title: "Quem Somos",
+        title: "Sobre nós",
         name: "history",
         href: "#history",
       },
