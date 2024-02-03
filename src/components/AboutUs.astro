@@ -5,7 +5,8 @@ import { Image } from "astro:assets";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
-const { title, subTitle, historyText } = translationContent.history;
+const { title, valuesTitle, historyText, valuesText } =
+  translationContent.aboutUs;
 ---
 
 <section
@@ -13,14 +14,29 @@ const { title, subTitle, historyText } = translationContent.history;
   class="w-full min-h-d-screen flex gap-4 sm:gap-8 pl-20 py-20"
 >
   <div class="border-l-[3px] border-delfim-primary flex gap-20">
-    <article class="pt-4 pl-4 flex flex-col gap-4 max-w-4xl">
-      <h5 class="uppercase text-3xl">Sobre nós</h5>
+    <article class="pt-4 pl-4 flex flex-col gap-6 max-w-4xl">
+      <div class="flex flex-col gap-2">
+        <h5 class="uppercase text-2xl font-bold">{title}</h5>
 
-      {historyText.map((text) => <p class="text-sm sm:text-xl ">{text}</p>)}
+        <div>
+          {
+            historyText.map((text) => (
+              <p class="text-base sm:text-lg">{text}</p>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="flex flex-col">
+        <h6 class="uppercase text-lg font-bold">{valuesTitle}</h6>
+        <div>
+          {valuesText.map((text) => <p class="text-base sm:text-lg">{text}</p>)}
+        </div>
+      </div>
     </article>
     <div>
       <Image
-        class="hidden sm:block h-full w-full"
+        class="hidden sm:block"
         alt="Ilustração da História de Delfim Maia"
         src={HistoryIllustrationImage}
       />

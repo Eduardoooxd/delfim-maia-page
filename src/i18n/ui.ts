@@ -10,10 +10,11 @@ export type TRANSLATIONS_TYPE = keyof typeof translations;
 
 interface translations_content {
   navlinks: NavLink[];
-  history: {
+  aboutUs: {
     title: string;
-    subTitle: string;
+    valuesTitle: string;
     historyText: string[];
+    valuesText: string[];
   };
   team: {
     title: string;
@@ -81,9 +82,8 @@ export const translations: translations_interface = {
         href: "#contacts",
       },
     ],
-    history: {
+    aboutUs: {
       title: "About Us",
-      subTitle: "Our History",
       historyText: [
         "With more than 40 years of history, we are proud to be a modern law firm, able to respond to the most diverse requests that come our way.",
         "Founded in 1980 by Dr J. Delfim Maia, a lawyer who has always been characterised by his combative nature, seriousness, knowledge and technical competence, the then small firm has grown little by little over time, in line with the needs and challenges that our clients have placed before us..",
@@ -92,6 +92,8 @@ export const translations: translations_interface = {
         "Realising that we can't master every area, we are committed to complementarity and have developed a number of partnerships that have enabled us to provide a cohesive and coordinated response, with specialists we trust, who share the same work values.",
         "The spirit of teamwork and collaboration that unites us also allows for the exchange of experiences and debate that are essential for us to seek the best response to the requests we receive on a daily basis.",
       ],
+      valuesTitle: "Our Values",
+      valuesText: [],
     },
     team: {
       title: "Team",
@@ -152,15 +154,21 @@ export const translations: translations_interface = {
         href: "#contacts",
       },
     ],
-    history: {
-      title: "Quem Somos",
-      subTitle: "A nossa História",
+    aboutUs: {
+      title: "Sobre nós",
       historyText: [
         "Com mais de 40 anos de história, orgulhamo-nos por ser um escritório moderno e apto para dar resposta às mais diversas solicitações que nos são dirigidas.",
         "Fundados em 1980 pelo Dr. J. Delfim Maia, advogado que sempre se caracterizou pelo seu caracter combativo, pela seriedade, conhecimento e competência técnica, o então pequeno escritório foi crescendo aos poucos, com o decorrer dos tempos, e de acordo com as necessidades e desafios que nos iam sendo colocados pelos clientes.",
         "Somos constituídos por uma equipa multifacetada e com vasta experiência profissional nas diversas áreas do Direito, formada por advogados de várias gerações e uma solicitadora, que, para além, de uma sólida formação académica, comungamos todos de uma filosofia muito própria de rigor deontológico, lealdade e de espírito de equipa.",
         "Os valores norteadores da nossa atividade diária, no sentido de prevenir ou resolver problemas aos nossos clientes, são a independência profissional, a integridade, a qualidade do serviço, a competência técnica, a combatividade, a audácia e a dedicação.",
         "Cientes de que não podemos dominar todas as áreas, apostamos na complementaridade, desenvolvendo algumas parcerias que nos têm permitido dar uma resposta coesa e articulada, com especialistas da nossa confiança, que partilhamdos mesmos valores de trabalho.",
+        "O espírito de equipa e de colaboração que nos une, permite ainda a troca de experiências e o debate indispensáveis a que, diariamente, busquemos a melhor resposta às solicitações que nos são dirigidas.",
+      ],
+      valuesTitle: "Os nossos Valores",
+      valuesText: [
+        "Os valores norteadores da nossa atividade diária, no sentido de prevenir ou resolver problemas aos nossos clientes, são a independência profissional, a integridade, a qualidade do serviço, a competência técnica, a combatividade, a audácia e a dedicação.",
+        "A nossa atividade centra-se na litigância em tribunal, onde temos experiência acumulada de décadas, a par do aconselhamento direto aos clientes, individuais e empresas, cujo contacto e conhecimento nos permite apostar na prevenção de litígios, na conciliação e no aconselhamento prévio a negócios e a decisões de estratégia com repercussões de índole patrimonial, comercial ou pessoal.",
+        "Cientes de que não podemos dominar todas as áreas, apostamos na complementaridade, desenvolvendo algumas parcerias que nos têm permitido dar uma resposta coesa e articulada, com especialistas da nossa confiança, que partilham dos mesmos valores de trabalho.",
         "O espírito de equipa e de colaboração que nos une, permite ainda a troca de experiências e o debate indispensáveis a que, diariamente, busquemos a melhor resposta às solicitações que nos são dirigidas.",
       ],
     },
