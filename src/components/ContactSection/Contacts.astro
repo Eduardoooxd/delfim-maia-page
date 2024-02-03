@@ -1,0 +1,82 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import EmailIcon from "@/images/email-icon.png";
+import LocationIcon from "@/images/location-icon.png";
+import PhoneIcon from "@/images/phone-icon.png";
+import { Image } from "astro:assets";
+import ContactInfo from "../ContactSection/ContactInfo.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const translationContent = useTranslations(lang);
+const { title, address, telephone } = translationContent.contacts;
+---
+
+<section class="p-20 flex flex-col gap-16" id="contacts">
+  <SectionTitle>{title}</SectionTitle>
+
+  <article class="flex justify-between gap-4 flex-col sm:flex-row">
+    <ContactInfo title={`${address.title}:`}>
+      <Image
+        title={`${address.title}:`}
+        src={LocationIcon}
+        height={48}
+        width={40}
+        alt={address.title}
+        slot="contact-info-icon"
+      />
+      <div slot="contact-info-description">
+        <a
+          href="https://www.google.com/maps?ll=41.353045,-8.748172&z=16&t=m&hl=pt-PT&gl=PT&mapclient=embed&cid=2886197521890413036"
+          target="_blank"
+          class="hover:underline"
+          rel="noopener noreferrer"
+        >
+          <p class="text-xl text-center">
+            Av. Dr. Artur da Cunha Araújo, 317
+            <br />
+             4480-667 Vila do Conde
+          </p>
+        </a>
+      </div>
+    </ContactInfo>
+
+    <ContactInfo title="E-Mail:">
+      <Image
+        title={`E-Mail:`}
+        src={EmailIcon}
+        height={60}
+        width={60}
+        alt={"E-Mail:"}
+        slot="contact-info-icon"
+      />
+      <div slot="contact-info-description">
+        <a
+          target="_blank"
+          class="hover:underline"
+          href="mailto:geral@delfimmaia.pt"
+        >
+          <p class="text-xl text-center">geral@delfimmaia.pt</p>
+        </a>
+      </div>
+    </ContactInfo>
+
+    <ContactInfo title={`${telephone.title}:`}>
+      <Image
+        title={`${telephone.title}:`}
+        src={PhoneIcon}
+        height={60}
+        width={60}
+        alt={telephone.title}
+        slot="contact-info-icon"
+      />
+      <div slot="contact-info-description" class="text-center">
+        <a target="_blank" class="hover:underline" href="tel:+351 252 640 720">
+          <p class="text-xl">252 640 720</p>
+        </a>
+
+        <p class="text-sm">{telephone.information}</p>
+      </div>
+    </ContactInfo>
+  </article>
+</section>

@@ -10,7 +10,7 @@ type Props = {
 };
 
 const lang = getLangFromUrl(Astro.url);
-const { revealNavbarOnScroll, showBackgroundImage } = Astro.props;
+const { revealNavbarOnScroll } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +26,7 @@ const { revealNavbarOnScroll, showBackgroundImage } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Delfim Maia</title>
   </head>
-  <body class="h-full relative bg-[#f3f4f6]">
+  <body class="h-full relative bg-white">
     <Navbar client:load language={lang} revealNavbar={revealNavbarOnScroll} />
     <slot />
     <Footer />
