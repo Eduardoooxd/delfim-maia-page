@@ -1,9 +1,9 @@
 ---
+import TeamMemberPage from "@/components/Team/TeamMemberPage.astro";
+import Layout from "@/layouts/Layout.astro";
 import "@/styles/globals.css";
 import type { TeamMember } from "@/types/TeamMember";
-import Layout from "@/layouts/Layout.astro";
 import { delay } from "@/utils/utils";
-import TeamMemberPage from "@/components/TeamMemberPage.astro";
 
 export async function getStaticPaths() {
   const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;

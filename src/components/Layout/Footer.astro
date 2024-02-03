@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { Copyright } from "lucide-astro";
-import LanguagePickerMobile from "../LanguagePickerMobile.astro";
+import LanguagePickerMobile from "../LanguagePicker/LanguagePickerMobile.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);

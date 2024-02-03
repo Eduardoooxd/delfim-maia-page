@@ -1,9 +1,8 @@
 ---
 import { getLangFromUrl } from "@/i18n/utils";
-import { cn } from "@/lib/utils";
+import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn } from "@/lib/utils";
+import type { TeamMember } from "@/types/TeamMember";
 import { Image } from "astro:assets";
-import type { TeamMember } from "../types/TeamMember";
-import { TEAM_MEMBER_BACKGROUNDS_COLORS } from "./data";
 
 type Props = TeamMember & {
   className?: string;
