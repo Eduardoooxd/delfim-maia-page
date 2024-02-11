@@ -16,7 +16,7 @@ const {
   name,
   roleEn,
   rolePt,
-  image,
+  cardImage,
   className,
   teamMemberIndex,
 } = Astro.props;
@@ -25,10 +25,6 @@ const { cardBackground, hoverCardBackground } =
   TEAM_MEMBER_BACKGROUNDS_COLORS[
     teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
   ];
-
-const invertString = (str: string) => {
-  return str.split("").reverse().join("");
-};
 ---
 
 <a
@@ -47,7 +43,14 @@ const invertString = (str: string) => {
     <p class="text-sm font-bold">{lang === "en" ? roleEn : rolePt}</p>
   </div>
 
-  <div class="absolute right-4 bottom-0 h-[95%]">
-    <Image class="max-h-full" width={300} height={520} alt={name} src={image} />
+  <div class="absolute right-4 bottom-0 pt-1 max-h-full">
+    <Image
+      loading="lazy"
+      class="h-auto max-h-full"
+      width={310}
+      height={450}
+      alt={name}
+      src={cardImage}
+    />
   </div>
 </a>

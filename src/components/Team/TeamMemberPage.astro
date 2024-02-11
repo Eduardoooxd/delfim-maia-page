@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import { Image } from "astro:assets";
 import RoundedCorner from "../ui/RoundedCorner.astro";
 
 type Props = {
@@ -30,7 +31,7 @@ const {
   role,
 } = Astro.props;
 
-const { teamPageBackground: fillBackground } =
+const { teamPageBackground, backButtonBackground } =
   TEAM_MEMBER_BACKGROUNDS_COLORS[
     teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
   ];
@@ -47,8 +48,42 @@ const {
 } = translationContent.teamMemberPage;
 ---
 
-<main class="h-[calc(100vh-6.25rem)] mt-[6.25rem] bg-[#E6E7E9]">
-  <section class="relative w-full px-24 py-12 h-full">
+<main class="min-h-[calc(100vh-6.25rem)] mt-[6.25rem] bg-[#E6E7E9] relative">
+  <div class="relative pt-4 px-4 md:hidden">
+    <Image
+      loading="lazy"
+      class="h-full max-w-full"
+      width={300}
+      height={650}
+      alt={name}
+      src={image}
+    />
+
+    <div class="absolute left-1/4 right-0 bottom-0 md:hidden">
+      <RoundedCorner className={cn(teamPageBackground)} />
+    </div>
+  </div>
+
+  <div
+    class="hidden md:block md:absolute md:right-2 lg:right-12 xl:right-[10%] 2xl:right-[15%] md:bottom-0 z-20"
+  >
+    <Image
+      loading="lazy"
+      class="h-full max-w-full"
+      width={400}
+      height={800}
+      alt={name}
+      src={image}
+    />
+
+    <div class="absolute left-1/4 right-0 bottom-0 md:hidden">
+      <RoundedCorner className={cn(teamPageBackground)} />
+    </div>
+  </div>
+
+  <section
+    class="relative w-full sm:w-[70%] md:px-12 lg:px-24 px-8 py-6 md:py-12 h-full"
+  >
     <div class="flex flex-col gap-6">
       <h6 class="text-4xl capitalize font-bold">
         {name}
@@ -59,23 +94,23 @@ const {
       <a target="_blank" href=`mailto:${email}`>
         <p class="text-lg">
           <b>{emailText}: {" "}</b>
-          <span class="underline"> {email}</span>
+          <span>{email}</span>
         </p>
       </a>
       {
         cp ? (
-          <p class="text-lg capitalize">
+          <p class="text-lg">
             <b>{professionalLicense}: </b> {cp}
           </p>
         ) : null
       }
       {
         formations && formations?.length > 0 ? (
-          <div class="flex flex-col gap-6 capitalize">
+          <div class="flex flex-col gap-6">
             <p class="text-lg">
               <b>{education}: </b>
             </p>
-            <ul class="flex flex-col gap-2 px-8">
+            <ul class="flex flex-col gap-1 px-8">
               {formations?.map((formation) => (
                 <li class="text-base list-disc">{formation.formationItem}</li>
               ))}
@@ -85,11 +120,11 @@ const {
       }
       {
         preferencesArea && preferencesArea.length > 0 ? (
-          <div class="flex flex-col gap-6 capitalize">
+          <div class="flex flex-col gap-6">
             <p class="text-lg">
               <b>{areasOfPractice}: </b>
             </p>
-            <ul class="flex flex-col gap-2 px-8">
+            <ul class="flex flex-col gap-1 px-8">
               {preferencesArea?.map((preferenceArea) => (
                 <li class="text-base list-disc">
                   {preferenceArea.preferenceaAreaItem}
@@ -99,10 +134,20 @@ const {
           </div>
         ) : null
       }
-    </div>
 
-    <div class="absolute left-1/4 right-0 bottom-0">
-      <RoundedCorner className={cn(fillBackground)} />
+      <a
+        href={`/${activeLang}`}
+        class={cn(
+          "py-3 px-12 text-white w-fit rounded-3xl transition-opacity hover:opacity-80",
+          backButtonBackground,
+        )}
+      >
+        {goBackText}
+      </a>
     </div>
   </section>
+
+  <div class="hidden md:block md:left-1/4 md:right-0 md:bottom-0 md:absolute">
+    <RoundedCorner className={cn(teamPageBackground)} />
+  </div>
 </main>

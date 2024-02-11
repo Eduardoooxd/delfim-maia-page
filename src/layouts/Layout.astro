@@ -7,10 +7,13 @@ import "@fontsource-variable/plus-jakarta-sans";
 
 type Props = {
   revealNavbarOnScroll: boolean;
+  title?: string;
 };
 
 const lang = getLangFromUrl(Astro.url);
-const { revealNavbarOnScroll } = Astro.props;
+const { revealNavbarOnScroll, title: rawTitle } = Astro.props;
+
+const title = rawTitle ? `${rawTitle} | Delfim Maia` : "Delfim Maia";
 ---
 
 <!doctype html>
@@ -24,7 +27,7 @@ const { revealNavbarOnScroll } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Delfim Maia</title>
+    <title>{title}</title>
   </head>
   <body class="h-full relative bg-white">
     <Navbar client:load language={lang} revealNavbar={revealNavbarOnScroll} />

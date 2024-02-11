@@ -2,6 +2,7 @@ export interface TeamMember {
   teamMemberId: string;
   name: string;
   image: string;
+  cardImage: string;
   rolePt: string;
   roleEn: string;
   email: string;
