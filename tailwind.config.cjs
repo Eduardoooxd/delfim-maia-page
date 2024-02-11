@@ -75,7 +75,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans Variable", ...defaultTheme.fontFamily.sans],
+        sans: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
+        title: ["FelixTi"],
       },
       gridTemplateColumns: {
         "section-page-columns": "6fr 4fr",

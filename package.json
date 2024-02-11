@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource-variable/plus-jakarta-sans": "^5.0.18",
+    "@fontsource-variable/montserrat": "^5.0.17",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-slot": "^1.0.2",
     "astro": "^4.3.0",

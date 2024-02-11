@@ -124,9 +124,9 @@
 }
 
 @font-face {
-  font-family: "Garet";
-  src: url("/fonts/Garet-Heavy.woff") format("woff");
-  font-weight: 600;
+  font-family: "FelixTi";
+  src: url("/fonts/FelixTi.ttf") format("ttf");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }

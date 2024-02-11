@@ -7,7 +7,9 @@ const { className } = Astro.props;
 ---
 
 <header class={cn("w-full", className)}>
-  <h5 class="uppercase text-center md:text-start text-2xl md:text-4xl">
+  <h5
+    class="uppercase text-center md:text-start text-2xl md:text-4xl font-title"
+  >
     <slot />
   </h5>
 </header>
