@@ -71,7 +71,7 @@ module.exports = {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-down": "accordion-down  0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
@@ -80,7 +80,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         "section-page-columns": "6fr 4fr",
-        "team-cards-columns": "repeat(auto-fit, minmax(21.25rem, 1fr))",
+        "team-cards-columns": "repeat(auto-fit, minmax(20.625rem, 1fr))",
       },
       dropShadow: {
         "text-outline": "0 1.5px 1.5px rgba(0 , 0, 0, 0.7)",

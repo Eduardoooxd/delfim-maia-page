@@ -113,6 +113,18 @@
   .navlink-active {
     @apply text-delfim-primary;
   }
+
+  .card-small {
+    @apply w-full sm:w-1/2 xl:w-1/4;
+  }
+
+  .card-medium {
+    @apply w-full sm:w-1/2 xl:w-[30%];
+  }
+
+  .card-large {
+    @apply w-full sm:w-1/2 xl:w-[40%];
+  }
 }
 
 @font-face {

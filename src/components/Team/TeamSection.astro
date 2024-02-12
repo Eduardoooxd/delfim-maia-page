@@ -31,12 +31,14 @@ const teamMembers: TeamMember[] = results[0].data.teamMembers;
   <section class="p-4 text-center md:hidden">
     <SectionTitle>{title}</SectionTitle>
   </section>
-  <article class="w-full grid grid-cols-team-cards-columns">
+
+  <article class="w-full flex flex-wrap">
     <div
-      class="hidden md:flex bg-delfim-primary w-full h-[36rem] p-12 justify-center"
+      class="hidden md:flex bg-delfim-primary h-[26rem] p-12 justify-center card-medium"
     >
       <h3 class="uppercase text-white text-6xl font-title">{title}</h3>
     </div>
+
     {
       teamMembers.map((teamMember, index) => (
         <TeamMemberCard teamMemberIndex={index} {...teamMember} />
