@@ -5,6 +5,19 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const getSizeClass = (size: string) => {
+  switch (size) {
+    case "small":
+      return "col-span-2";
+    case "medium":
+      return "col-span-3";
+    case "large":
+      return "col-span-4";
+    default:
+      return "col-span-3"; // Default size or handle error
+  }
+};
+
 export const TEAM_MEMBER_BACKGROUNDS_COLORS: {
   cardBackground: string;
   hoverCardBackground: string;

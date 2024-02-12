@@ -3,6 +3,7 @@ export interface TeamMember {
   name: string;
   image: string;
   cardImage: string;
+  cardSize: "small" | "medium" | "large";
   rolePt: string;
   roleEn: string;
   email: string;

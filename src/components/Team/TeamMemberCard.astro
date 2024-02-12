@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl } from "@/i18n/utils";
-import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn } from "@/lib/utils";
+import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn, getSizeClass } from "@/lib/utils";
 import type { TeamMember } from "@/types/TeamMember";
 import { Image } from "astro:assets";
 
@@ -19,12 +19,15 @@ const {
   cardImage,
   className,
   teamMemberIndex,
+  cardSize,
 } = Astro.props;
 
 const { cardBackground, hoverCardBackground } =
   TEAM_MEMBER_BACKGROUNDS_COLORS[
     teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
   ];
+
+const cardSizeClassname = getSizeClass(cardSize);
 ---
 
 <a
