@@ -27,7 +27,7 @@ const { results } = await fetch(
 const areas = results[0].data.expertiseAreas;
 ---
 
-<section class="pt-4 px-4 md:p-20">
+<section class="p-4 md:p-20">
   <SectionTitle>{title}</SectionTitle>
 </section>
 
@@ -36,7 +36,7 @@ const areas = results[0].data.expertiseAreas;
   class="relative flex flex-col gap-2 sm:gap-10 min-h-screen"
 >
   <Image
-    class="absolute h-screen -z-10 inset-0 w-full object-cover hidden sm:block"
+    class="absolute h-screen -z-10 inset-0 w-full object-cover block object-left"
     src={ExpertiseAreasIllustration}
     alt="Image do logo de Delfim Maia"
     quality={100}
