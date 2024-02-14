@@ -13,7 +13,7 @@ const { title, address, telephone } = translationContent.contacts;
 ---
 
 <section class="p-4 md:py-16 md:px-20 flex flex-col gap-16" id="contacts">
-  <SectionTitle className="text-center">{title}</SectionTitle>
+  <SectionTitle>{title}</SectionTitle>
 
   <article class="flex justify-between gap-4 flex-col sm:flex-row md:px-10">
     <ContactInfo title={`${address.title}:`}>
