@@ -16,12 +16,14 @@ const lang = getLangFromUrl(Astro.url);
     class="hidden absolute -z-10 inset-0 w-full h-full md:block"
     src={HeroBackgroundImage}
     alt="Background of landing hero"
+    quality={100}
   />
 
   <Image
     class="absolute -z-10 inset-0 w-full h-full md:hidden"
     src={HeroBackgroundMobileImage}
     alt="Background of landing hero"
+    quality={100}
   />
 
   <LanguagePicker />
@@ -30,49 +32,49 @@ const lang = getLangFromUrl(Astro.url);
     height={234}
     src={LogoImage}
     alt={`${lang === "pt" ? "Logo de Delfim Maia" : "Logo of Delfim Maia"}`}
+    quality={100}
   />
   <div></div>
   <div class="hidden sm:block"></div>
-  <section class="absolute right-8 bottom-8 justify-end items-end text-white">
+  <section class="absolute right-6 bottom-6 justify-end items-end text-white">
     {
       lang === "pt" ? (
         <p class="text-right tracking-wider">
-          <span class="text-base sm:text-lg">Mais de</span>
-          <span class="text-xl sm:text-2xl font-semibold">40 anos</span>
+          <span class="text-xl">Mais de</span>
+          <span class="text-2xl font-semibold">40 anos</span>
           <br />
-          <span class="text-base sm:text-lg">a</span>
-          <span class="text-xl sm:text-2xl font-semibold">estudar</span>
-          <span class="text-base sm:text-lg">o</span>
-          <span class="text-xl sm:text-2xl font-semibold">direito,</span>
+          <span class="text-xl">a</span>
+          <span class="text-2xl font-semibold">estudar</span>
+          <span class="text-xl">o</span>
+          <span class="text-2xl font-semibold">direito,</span>
           <br />
-          <span class="text-base sm:text-lg">a</span>
-          <span class="text-xl sm:text-2xl font-semibold">lutar</span>
-          <span class="text-base sm:text-lg">pela</span>
-          <span class="text-xl sm:text-2xl font-semibold">justiça</span>
-          <span class="text-base sm:text-lg">e a</span>
-          <br />
-          <span class="text-base sm:text-lg">criar</span>
-          <span class="text-xl sm:text-2xl font-semibold">relações</span>
-          <span class="text-base sm:text-lg">de</span>
-          <span class="text-xl sm:text-2xl font-semibold">confiança.</span>
+          <span class="text-xl">a</span>
+          <span class="text-2xl font-semibold">lutar</span>
+          <span class="text-xl">pela</span>
+          <span class="text-2xl font-semibold">justiça</span>
+          <span class="text-xl">e a</span>
+          <>
+            <br />
+            <span class="text-xl">criar</span>
+          </>
+          <span class="text-2xl font-semibold">relações</span>
+          <span class="text-xl">de</span>
+          <span class="text-2xl font-semibold">confiança.</span>
         </p>
       ) : (
         <>
           <p class="text-right tracking-wider">
-            <span class="text-base sm:text-lg">More than</span>
-            <span class="text-xl sm:text-2xl font-semibold">40 years</span>
+            <span class="text-xl">More than</span>
+            <span class="text-2xl font-semibold">40 years</span>
             <br />
             <span class="text-xl sm:text-2xl font-semibold">studying law,</span>
             <br />
             <span class="text-xl sm:text-2xl font-semibold">fighting</span>
-            <span class="text-base sm:text-lg">for</span>
-            <span class="text-xl sm:text-2xl font-semibold">justice</span>
-            <span class="text-base sm:text-lg">and</span>
-            <br />
-            <span class="text-base sm:text-lg">building</span>
-            <span class="text-xl sm:text-2xl font-semibold">
-              trusting relationships.
-            </span>
+            <span class="text-xl">for</span>
+            <span class="text-2xl font-semibold">justice</span>
+            <span class="text-xl">and</span>
+            <br /> <span class="text-xl">building</span>
+            <span class="text-2xl font-semibold">trusting relationships.</span>
           </p>
         </>
       )
