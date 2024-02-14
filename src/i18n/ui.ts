@@ -201,7 +201,7 @@ export const translations: translations_interface = {
         href: "terms-conditions",
       },
       policies: {
-        title: "Politicas",
+        title: "Políticas",
         href: "policies",
       },
     },
