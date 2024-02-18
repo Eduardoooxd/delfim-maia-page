@@ -48,11 +48,11 @@ const {
 } = translationContent.teamMemberPage;
 ---
 
-<main class="min-h-[calc(100vh-6.25rem)] mt-[6.25rem] bg-[#E6E7E9] relative">
+<main class="min-h-[calc(100vh-6.875rem)] mt-[6.875rem] bg-[#E6E7E9] relative">
   <div class="relative pt-4 px-4 md:hidden">
     <Image
       loading="lazy"
-      class="h-full max-w-full"
+      class="h-full max-w-full mix-blend-multiply"
       width={300}
       height={650}
       alt={name}
@@ -68,19 +68,16 @@ const {
   <div
     class="hidden md:block md:absolute md:right-2 lg:right-12 xl:right-[10%] 2xl:right-[15%] md:bottom-0 z-20"
   >
-    <Image
-      loading="lazy"
-      class="h-full max-w-full"
-      width={400}
+    <img
+      class="h-auto w-full max-h-[calc(100vh-7.875rem)] mix-blend-multiply"
       height={800}
       alt={name}
       src={image}
-      quality={100}
     />
   </div>
 
   <section
-    class="relative w-full sm:w-[65%] text-balance md:px-12 lg:px-24 px-8 py-6 md:py-12 h-full"
+    class="relative w-full sm:w-[70%] text-balance md:px-12 lg:px-24 px-8 py-6 md:py-12 h-full"
   >
     <div class="flex flex-col gap-6">
       <h6 class="text-4xl capitalize font-bold">
