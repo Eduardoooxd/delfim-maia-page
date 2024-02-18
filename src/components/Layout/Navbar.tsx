@@ -1,6 +1,6 @@
 import { languages, type TRANSLATIONS_TYPE } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
-import LogoImage from "@/images/logo.png";
+import LogoImage from "@/images/logo.jpeg";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -142,7 +142,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
         <section className="px-8 lg:px-24">
           <a href={`/${language}`}>
             <img
-              className="w-[6.25rem] h-[4,875rem]"
+              className="aspect-[1600/1341] w-[7rem]"
               src={LogoImage.src}
               alt="Image do logo de Delfim Maia"
             />

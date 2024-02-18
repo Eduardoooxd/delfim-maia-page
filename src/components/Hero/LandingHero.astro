@@ -2,7 +2,7 @@
 import { getLangFromUrl } from "@/i18n/utils";
 import HeroBackgroundMobileImage from "@/images/hero-image-mobile.jpeg";
 import HeroBackgroundImage from "@/images/hero-image.png";
-import LogoImage from "@/images/logo.png";
+import LogoImage from "@/images/logo.jpeg";
 import { Image } from "astro:assets";
 import LanguagePicker from "../LanguagePicker/LanguagePickerHero.astro";
 
@@ -28,9 +28,8 @@ const lang = getLangFromUrl(Astro.url);
 
   <LanguagePicker />
   <Image
-    width={300}
-    height={234}
     src={LogoImage}
+    class="w-full h-auto max-w-[19.5rem] mix-blend-multiply"
     alt={`${lang === "pt" ? "Logo de Delfim Maia" : "Logo of Delfim Maia"}`}
     quality={100}
   />
