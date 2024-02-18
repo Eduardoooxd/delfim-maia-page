@@ -57,6 +57,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
     };
   }, []);
 
+  /*
   useEffect(() => {
     const sectionsToObserve = [
       "history",
@@ -103,7 +104,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
         }
       });
     };
-  }, []);
+  }, []);*/
 
   useEffect(() => {
     const originalStyle: string = window.getComputedStyle(
