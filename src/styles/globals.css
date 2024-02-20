@@ -125,6 +125,11 @@
   .card-large {
     @apply w-full sm:w-1/2 xl:w-[40%];
   }
+
+  .landing-hero-container {
+    min-height: calc(100vh - 6.875rem);
+    min-height: calc(100svh - 6.875rem);
+  }
 }
 
 @font-face {
