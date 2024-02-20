@@ -14,30 +14,26 @@ const { title, valuesTitle, historyText, valuesText } =
   class="w-full min-h-d-screen p-4 lg:pl-20 lg:pr-0 lg:py-20"
 >
   <div
-    class="border-l-[3px] border-delfim-primary grid lg:grid-cols-section-page-columns gap-10"
+    class="border-l-[3px] border-delfim-primary flex flex-col sm:flex-row gap-2 sm:gap-6"
   >
-    <article class="md:pt-4 pl-4 flex flex-col gap-6 w-full flex-grow">
-      <div class="flex flex-col gap-2 flex-grow h-full">
+    <article class="md:pt-4 pl-4 flex flex-col gap-4 w-full">
+      <div class="flex flex-col gap-1">
         <h5 class="uppercase text-4xl font-title">{title}</h5>
 
-        <div class="flex flex-col gap-2 h-full justify-around">
-          {
-            historyText.map((text) => (
-              <p class="text-base sm:text-lg">{text}</p>
-            ))
-          }
+        <div class="flex flex-col gap-1">
+          {historyText.map((text) => <p class="text-base ">{text}</p>)}
         </div>
       </div>
 
-      <div class="flex flex-col flex-grow">
+      <div class="flex flex-col">
         <h6 class="uppercase text-lg font-bold">{valuesTitle}</h6>
-        <div class="flex flex-col gap-2">
-          {valuesText.map((text) => <p class="text-base sm:text-lg">{text}</p>)}
+        <div class="flex flex-col gap-1">
+          {valuesText.map((text) => <p class="text-base ">{text}</p>)}
         </div>
       </div>
     </article>
 
-    <div class="hidden lg:block aspect-[1066/1600]">
+    <div class="hidden lg:block aspect-[1066/1600] max-w-[550px]">
       <Image
         loading="lazy"
         class="hidden lg:block aspect-[1066/1600]"
