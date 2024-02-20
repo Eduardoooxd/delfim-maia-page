@@ -40,10 +40,10 @@ const cardSizeClassname = getSizeClass(cardSize);
 >
   <div
     class={cn(
-      "absolute left-1 bottom-4 [writing-mode:vertical-rl] tracking-wider -rotate-180 z-30 group-hover:underline ",
+      "absolute left-1 bottom-4 [writing-mode:vertical-rl] tracking-wider -rotate-180 z-30",
     )}
   >
-    <h6 class="text-lg font-bold">{name}</h6>
+    <h6 class="text-lg font-bold group-hover:underline">{name}</h6>
     <p class="text-sm font-bold">{lang === "en" ? roleEn : rolePt}</p>
   </div>
 
