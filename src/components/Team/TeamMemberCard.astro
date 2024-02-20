@@ -21,7 +21,7 @@ const {
   cardSize,
 } = Astro.props;
 
-const { cardBackground, hoverCardBackground } =
+const { cardBackground } =
   TEAM_MEMBER_BACKGROUNDS_COLORS[
     teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
   ];
@@ -33,7 +33,6 @@ const cardSizeClassname = getSizeClass(cardSize);
   class={cn(
     "block transition-colors ease-in-out duration-300 h-[26rem] p-4 relative group",
     cardBackground,
-    hoverCardBackground,
     cardSizeClassname,
     className,
   )}
@@ -41,7 +40,7 @@ const cardSizeClassname = getSizeClass(cardSize);
 >
   <div
     class={cn(
-      "absolute left-1 bottom-4 [writing-mode:vertical-rl] tracking-wider -rotate-180 z-30 transition-colors ease-in-out duration-300",
+      "absolute left-1 bottom-4 [writing-mode:vertical-rl] tracking-wider -rotate-180 z-30 group-hover:underline ",
     )}
   >
     <h6 class="text-lg font-bold">{name}</h6>
