@@ -16,27 +16,35 @@ const { title, valuesTitle, historyText, valuesText } =
   <div
     class="border-l-[3px] border-delfim-primary flex flex-col sm:flex-row gap-2 sm:gap-6"
   >
-    <article class="md:pt-4 pl-4 flex flex-col gap-4 w-full">
-      <div class="flex flex-col gap-1">
+    <article class="md:pt-4 pl-4 flex flex-col gap-4 w-full lg:w-[60%]">
+      <div class="flex flex-col gap-1 2xl:gap-2">
         <h5 class="uppercase text-4xl font-title">{title}</h5>
 
-        <div class="flex flex-col gap-1">
-          {historyText.map((text) => <p class="text-base ">{text}</p>)}
+        <div class="flex flex-col gap-1 2xl:gap-2">
+          {
+            historyText.map((text) => (
+              <p class="text-base 2xl:text-lg">{text}</p>
+            ))
+          }
         </div>
       </div>
 
-      <div class="flex flex-col">
+      <div class="flex flex-col gap-1 2xl:gap-2">
         <h6 class="uppercase text-lg font-bold">{valuesTitle}</h6>
-        <div class="flex flex-col gap-1">
-          {valuesText.map((text) => <p class="text-base ">{text}</p>)}
+        <div class="flex flex-col gap-1 2xl:gap-2">
+          {
+            valuesText.map((text) => (
+              <p class="text-base 2xl:text-lg">{text}</p>
+            ))
+          }
         </div>
       </div>
     </article>
 
-    <div class="hidden lg:block aspect-[1066/1600] max-w-[550px]">
+    <div class="hidden lg:block lg:w-[40%]">
       <Image
         loading="lazy"
-        class="hidden lg:block aspect-[1066/1600]"
+        class="hidden lg:block h-full w-full object-cover"
         alt="Ilustração da História de Delfim Maia"
         src={HistoryIllustrationImage}
       />
