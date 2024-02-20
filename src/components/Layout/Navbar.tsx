@@ -13,98 +13,11 @@ export interface NavLink {
 }
 
 type NavbarProps = {
-  revealNavbar: boolean;
   language: TRANSLATIONS_TYPE;
 };
 
-export default function Navbar({ revealNavbar, language }: NavbarProps) {
-  const [opacityToDisplay, setOpacityToDisplay] = useState<
-    "opacity-100" | "opacity-0"
-  >(!revealNavbar ? "opacity-100" : "opacity-0");
-
+export default function Navbar({ language }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const getOpacityToDisplay = () => {
-    if (!revealNavbar) {
-      return "opacity-100";
-    }
-
-    if (!window) {
-      return "";
-    }
-
-    const { scrollY, screenY } = window;
-
-    if (screenY > 300 || scrollY > 300) {
-      setOpacityToDisplay("opacity-100");
-      return;
-    }
-
-    setOpacityToDisplay("opacity-0");
-  };
-
-  useEffect(() => {
-    if (revealNavbar) {
-      getOpacityToDisplay();
-      window?.addEventListener("scroll", getOpacityToDisplay);
-    }
-
-    return () => {
-      if (revealNavbar) {
-        // Only remove if it's added while
-        window?.removeEventListener("scroll", getOpacityToDisplay);
-      }
-    };
-  }, []);
-
-  /*
-  useEffect(() => {
-    const sectionsToObserve = [
-      "history",
-      "team",
-      "expertise-areas",
-      "contacts",
-    ];
-
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.4,
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-
-          document.querySelectorAll("nav a").forEach((navLink) => {
-            const navLinkId = navLink.getAttribute("section-name");
-            if (navLinkId === id) {
-              navLink.classList.add("navlink-active");
-            } else {
-              navLink.classList.remove("navlink-active");
-            }
-          });
-        }
-      });
-    }, options);
-
-    sectionsToObserve.forEach((sectionId) => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        observer.observe(section);
-      }
-    });
-
-    return () => {
-      sectionsToObserve.forEach((sectionId) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          observer.unobserve(section);
-        }
-      });
-    };
-  }, []);*/
 
   useEffect(() => {
     const originalStyle: string = window.getComputedStyle(
@@ -134,8 +47,7 @@ export default function Navbar({ revealNavbar, language }: NavbarProps) {
   return (
     <nav
       className={cn(
-        "fixed z-[100] top-0 left-0 w-full bg-white py-2 flex flex-col gap-4 transition-opacity duration-300 ease-in shadow",
-        opacityToDisplay,
+        "sticky z-[100] top-0 left-0 w-full bg-white py-2 flex flex-col gap-4 transition-opacity duration-300 ease-in shadow",
         `${mobileMenuOpen ? "min-h-screen" : ""}`,
       )}
     >
