@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import HeroBackgroundMobileImage from "@/images/hero-image-mobile.jpeg";
 import HeroBackgroundImage from "@/images/hero-image.png";
 import LogoImage from "@/images/logo.jpeg";
@@ -7,10 +7,12 @@ import { Image } from "astro:assets";
 import LanguagePicker from "../LanguagePicker/LanguagePickerHero.astro";
 
 const lang = getLangFromUrl(Astro.url);
+const translationContent = useTranslations(lang);
+const { navlinks } = translationContent;
 ---
 
 <section
-  class="landing-hero-container p-8 sm:p-16 grid grid-cols-2 grid-rows-2 relative"
+  class="min-h-d-screen -mt-[6.875rem] p-8 sm:px-16 sm:py-32 grid grid-cols-2 grid-rows-2 relative"
 >
   <Image
     class="hidden absolute -z-10 inset-0 w-full h-full md:block"
@@ -33,53 +35,69 @@ const lang = getLangFromUrl(Astro.url);
     alt={`${lang === "pt" ? "Logo de Delfim Maia" : "Logo of Delfim Maia"}`}
     quality={100}
   />
-  <div></div>
+  <div>
+    <section class="flex-col gap-1 hidden lg:flex">
+      <section class="flex gap-8 pt-8 pr-8 justify-end">
+        {
+          navlinks.map(({ title, href, name }) => (
+            <a
+              class="font-bold text-delfim-primary text-sm lg:text-base hover:text-black transition-colors"
+              section-name={name}
+              href={`/${lang}${href}`}
+            >
+              {title}
+            </a>
+          ))
+        }
+      </section>
+    </section>
+  </div>
   <div class="hidden sm:block"></div>
   <section
-    class="absolute right-2 bottom-0 sm:bottom-4 sm:right-4 xl:right-8 xl:bottom-4 justify-end items-end text-white"
+    class="absolute right-4 bottom-4 sm:bottom-4 sm:right-4 xl:right-8 xl:bottom-4 justify-end items-end text-white"
   >
     {
       lang === "pt" ? (
         <p class="text-right tracking-wider leading-9">
-          <span class="text-lg xl:text-xl">Mais de</span>
-          <span class="text-2xl xl:text-2xl font-semibold">40 anos</span>
+          <span class="text-xl xl:text-2xl">Mais de</span>
+          <span class="text-2xl xl:text-3xl font-semibold">40 anos</span>
           <br />
-          <span class="text-lg xl:text-xl">a</span>
-          <span class="text-2xl xl:text-2xl font-semibold">estudar</span>
-          <span class="text-lg xl:text-xl">o</span>
-          <span class="text-2xl xl:text-2xl font-semibold">direito,</span>
+          <span class="text-xl xl:text-2xl">a</span>
+          <span class="text-2xl xl:text-3xl font-semibold">estudar</span>
+          <span class="text-xl xl:text-2xl">o</span>
+          <span class="text-2xl xl:text-3xl font-semibold">direito,</span>
           <br />
-          <span class="text-lg xl:text-xl">a</span>
-          <span class="text-2xl xl:text-2xl font-semibold">lutar</span>
-          <span class="text-lg xl:text-xl">pela</span>
-          <span class="text-2xl xl:text-2xl font-semibold">justiça</span>
-          <span class="text-lg xl:text-xl">e a</span>
+          <span class="text-xl xl:text-2xl">a</span>
+          <span class="text-2xl xl:text-3xl font-semibold">lutar</span>
+          <span class="text-xl xl:text-2xl">pela</span>
+          <span class="text-2xl xl:text-3xl font-semibold">justiça</span>
+          <span class="text-xl xl:text-2xl">e a</span>
           <>
             <br />
-            <span class="text-lg xl:text-xl">criar</span>
+            <span class="text-xl xl:text-2xl">criar</span>
           </>
-          <span class="text-2xl xl:text-2xl font-semibold">relações</span>
-          <span class="text-lg xl:text-xl">de</span>
-          <span class="text-2xl xl:text-2xl font-semibold">confiança.</span>
+          <span class="text-2xl xl:text-3xl font-semibold">relações</span>
+          <span class="text-xl xl:text-2xl">de</span>
+          <span class="text-2xl xl:text-3xl font-semibold">confiança.</span>
         </p>
       ) : (
         <>
           <p class="text-right tracking-wider leading-9">
-            <span class="text-lg xl:text-xl">More than</span>
-            <span class="text-2xl xl:text-2xl font-semibold">40 years</span>
+            <span class="text-xl xl:text-2xl">More than</span>
+            <span class="text-2xl xl:text-3xl font-semibold">40 years</span>
             <br />
-            <span class="text-lg xl:text-xl sm:text-2xl xl:text-2xl font-semibold">
+            <span class="text-xl xl:text-2xl sm:text-2xl xl:text-3xl font-semibold">
               studying law,
             </span>
             <br />
-            <span class="text-lg xl:text-xl sm:text-2xl xl:text-2xl font-semibold">
+            <span class="text-xl xl:text-2xl sm:text-2xl xl:text-3xl font-semibold">
               fighting
             </span>
-            <span class="text-lg xl:text-xl">for</span>
-            <span class="text-2xl xl:text-2xl font-semibold">justice</span>
-            <span class="text-lg xl:text-xl">and</span>
-            <br /> <span class="text-lg xl:text-xl">building</span>
-            <span class="text-2xl xl:text-2xl font-semibold">
+            <span class="text-xl xl:text-2xl">for</span>
+            <span class="text-2xl xl:text-3xl font-semibold">justice</span>
+            <span class="text-xl xl:text-2xl">and</span>
+            <br /> <span class="text-xl xl:text-2xl">building</span>
+            <span class="text-2xl xl:text-3xl font-semibold">
               trusting relationships.
             </span>
           </p>

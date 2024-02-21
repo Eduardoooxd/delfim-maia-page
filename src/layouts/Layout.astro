@@ -7,10 +7,11 @@ import "@fontsource-variable/montserrat";
 
 type Props = {
   title?: string;
+  revealNavbarOnScroll?: boolean;
 };
 
 const lang = getLangFromUrl(Astro.url);
-const { title: rawTitle } = Astro.props;
+const { title: rawTitle, revealNavbarOnScroll } = Astro.props;
 
 const title = rawTitle ? `${rawTitle} | Delfim Maia` : "Delfim Maia";
 ---
@@ -29,7 +30,7 @@ const title = rawTitle ? `${rawTitle} | Delfim Maia` : "Delfim Maia";
     <title>{title}</title>
   </head>
   <body class="h-full relative bg-white">
-    <Navbar client:load language={lang} />
+    <Navbar client:load language={lang} revealNavbar={revealNavbarOnScroll} />
     <slot />
     <Footer />
   </body>
