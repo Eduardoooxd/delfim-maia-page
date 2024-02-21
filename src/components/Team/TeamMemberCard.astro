@@ -38,7 +38,11 @@ const cardSizeClassname = getSizeClass(cardSize);
   )}
   href={`/${lang}/team/${teamMemberId}`}
 >
-  <div class={cn("absolute left-1 bottom-4 tracking-wider  z-30")}>
+  <div
+    class={cn(
+      "absolute left-1 bottom-4 tracking-wider [writing-mode:vertical-rl] -rotate-180  z-30",
+    )}
+  >
     <h6 class="text-lg font-bold group-hover:underline">
       {name}
     </h6>
