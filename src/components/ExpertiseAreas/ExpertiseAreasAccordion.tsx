@@ -27,7 +27,7 @@ export default function ExpertiseAreasAccordion({
       <Accordion
         type="single"
         defaultValue="item-0"
-        className="w-full flex flex-col gap-2"
+        className="w-full flex flex-col gap-1"
       >
         {expertiseAreas?.map(
           ({ areaEn, areaPt, descriptionEn, descriptionPt }, index) => {
