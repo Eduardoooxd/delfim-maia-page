@@ -27,24 +27,23 @@ const { results } = await fetch(
 const areas = results[0].data.expertiseAreas;
 ---
 
-<section class="p-4 md:p-20">
-  <SectionTitle>{title}</SectionTitle>
-</section>
+<section id="expertise-areas">
+  <section class="p-4 md:p-10">
+    <SectionTitle>{title}</SectionTitle>
+  </section>
 
-<section
-  id="expertise-areas"
-  class="relative flex flex-col gap-2 sm:gap-10 min-h-screen"
->
-  <Image
-    class="absolute h-full -z-10 inset-0 w-full object-cover block object-left"
-    src={ExpertiseAreasIllustration}
-    alt="Image do logo de Delfim Maia"
-    quality={100}
-  />
+  <section class="relative flex flex-col gap-2 sm:gap-10 h-fit">
+    <Image
+      class="absolute h-full -z-10 inset-0 w-full object-cover block object-left"
+      src={ExpertiseAreasIllustration}
+      alt="Image do logo de Delfim Maia"
+      quality={100}
+    />
 
-  <ExpertiseAreasAccordion
-    currentLanguage={lang}
-    expertiseAreas={areas}
-    client:load
-  />
+    <ExpertiseAreasAccordion
+      currentLanguage={lang}
+      expertiseAreas={areas}
+      client:load
+    />
+  </section>
 </section>
