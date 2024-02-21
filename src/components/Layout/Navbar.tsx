@@ -1,6 +1,6 @@
 import { languages, type TRANSLATIONS_TYPE } from "@/i18n/ui";
 import { useTranslations } from "@/i18n/utils";
-import LogoImage from "@/images/logo.jpeg";
+import LogoImage from "@/images/logo.png";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
