@@ -41,11 +41,15 @@ const translatePath = useTranslatedPath(lang);
 >
   <div
     class={cn(
-      "absolute left-1 bottom-4 [writing-mode:vertical-rl] tracking-wider -rotate-180 z-30",
+      "absolute left-1 bottom-4 tracking-wider [writing-mode:vertical-rl] -rotate-180  z-30",
     )}
   >
-    <h6 class="text-lg font-bold group-hover:underline">{name}</h6>
-    <p class="text-sm font-bold">{lang === "en" ? roleEn : rolePt}</p>
+    <h6 class="text-lg font-bold group-hover:underline">
+      {name}
+    </h6>
+    <p class="text-sm font-bold">
+      {lang === "en" ? roleEn : rolePt}
+    </p>
   </div>
 
   <div class="absolute right-1 bottom-0">
