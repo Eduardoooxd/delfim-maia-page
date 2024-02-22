@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl } from "@/i18n/utils";
+import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
 import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn, getSizeClass } from "@/lib/utils";
 import type { TeamMember } from "@/types/TeamMember";
 
@@ -27,6 +27,7 @@ const { cardBackground } =
   ];
 
 const cardSizeClassname = getSizeClass(cardSize);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <a
@@ -36,7 +37,7 @@ const cardSizeClassname = getSizeClass(cardSize);
     cardSizeClassname,
     className,
   )}
-  href={`/${lang}/team/${teamMemberId}`}
+  href={translatePath(`/team/${teamMemberId}`)}
 >
   <div
     class={cn(

@@ -1,5 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "@/i18n/utils";
 import HeroBackgroundMobileImage from "@/images/hero-image-mobile.jpeg";
 import HeroBackgroundImage from "@/images/hero-image.png";
 import LogoImage from "@/images/logo.png";
@@ -9,6 +13,8 @@ import LanguagePicker from "../LanguagePicker/LanguagePickerHero.astro";
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
 const { navlinks } = translationContent;
+
+const translatePath = useTranslatedPath(lang);
 ---
 
 <section
@@ -43,7 +49,7 @@ const { navlinks } = translationContent;
             <a
               class="font-bold text-delfim-primary text-sm lg:text-base hover:text-black transition-colors"
               section-name={name}
-              href={`/${lang}${href}`}
+              href={translatePath(`${href}`)}
             >
               {title}
             </a>

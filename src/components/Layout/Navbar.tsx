@@ -1,5 +1,5 @@
 import { languages, type TRANSLATIONS_TYPE } from "@/i18n/ui";
-import { useTranslations } from "@/i18n/utils";
+import { useTranslatedPath, useTranslations } from "@/i18n/utils";
 import LogoImage from "@/images/logo.png";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -85,6 +85,7 @@ export default function Navbar({
 
   const translationContent = useTranslations(language);
   const { navlinks } = translationContent;
+  const translatePath = useTranslatedPath(language);
 
   return (
     <>
@@ -97,7 +98,7 @@ export default function Navbar({
       >
         <div className="flex justify-between gap-4 items-center">
           <section className="px-8 lg:px-24">
-            <a href={`/${language}`}>
+            <a href={translatePath(`/`)}>
               <img
                 className="aspect-[1600/1341] w-[7rem]"
                 src={LogoImage.src}
@@ -112,7 +113,7 @@ export default function Navbar({
                 <a
                   className=" font-bold text-sm lg:text-base hover:text-delfim-primary transition-colors"
                   section-name={name}
-                  href={`/${language}${href}`}
+                  href={translatePath(`${href}`)}
                   key={name}
                 >
                   {title}
@@ -146,7 +147,7 @@ export default function Navbar({
             <a
               className="font-bold text-xl"
               section-name={name}
-              href={`/${language}${href}`}
+              href={translatePath(`${href}`)}
               onClick={() => {
                 closeMobileMenu();
               }}
@@ -166,7 +167,7 @@ export default function Navbar({
                       language === languageList ? "text-delfim-primary " : ""
                     }`,
                   )}
-                  href={`/${languageList}/`}
+                  href={`/${languageList === "pt" ? "" : languageList}`}
                 >
                   {languageList}
                 </a>

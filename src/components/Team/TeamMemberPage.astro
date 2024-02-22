@@ -1,5 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "@/i18n/utils";
 import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { Image } from "astro:assets";
@@ -38,6 +42,7 @@ const { teamPageBackground, backButtonBackground } =
 
 const activeLang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(activeLang);
+const translatePath = useTranslatedPath(activeLang);
 
 const {
   emailText,
@@ -131,7 +136,7 @@ const {
       }
 
       <a
-        href={`/${activeLang}#team`}
+        href={`/${activeLang === "pt" ? "" : activeLang}#team`}
         class={cn(
           "py-3 px-12 text-white w-fit rounded-3xl transition-opacity hover:opacity-80",
           backButtonBackground,
