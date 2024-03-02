@@ -27,8 +27,6 @@ type Props = {
 const { name, email, image, pageColor, cp, formations, preferencesArea, role } =
   Astro.props;
 
-//const { teamPageBackground, backButtonBackground } =
-
 const activeLang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(activeLang);
 const translatePath = useTranslatedPath(activeLang);
