@@ -4,6 +4,8 @@ export interface TeamMember {
   image: string;
   cardImage: string;
   cardSize: "small" | "medium" | "large";
+  cardColor: string;
+  pageColor: string;
   rolePt: string;
   roleEn: string;
   email: string;

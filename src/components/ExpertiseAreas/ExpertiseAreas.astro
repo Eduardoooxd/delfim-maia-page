@@ -14,8 +14,8 @@ const builderAPIpublicKey = import.meta.env.BUILDER_API_PUBLIC_KEY;
 const isProduction = import.meta.env.PROD;
 
 if (isProduction) {
-  // Force the delay of request to CMS to wait 30 seconds because CMS takes some seconds to refresh data.
-  await delay(10000);
+  // Force the delay of request to CMS to wait 45 seconds because CMS takes some seconds to refresh data.
+  await delay(45000);
 }
 
 const { results } = await fetch(

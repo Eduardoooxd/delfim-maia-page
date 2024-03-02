@@ -1,11 +1,10 @@
 ---
 import { getLangFromUrl, useTranslatedPath } from "@/i18n/utils";
-import { TEAM_MEMBER_BACKGROUNDS_COLORS, cn, getSizeClass } from "@/lib/utils";
+import { cn, getSizeClass } from "@/lib/utils";
 import type { TeamMember } from "@/types/TeamMember";
 
 type Props = TeamMember & {
   className?: string;
-  teamMemberIndex: number;
 };
 
 const lang = getLangFromUrl(Astro.url);
@@ -14,26 +13,21 @@ const {
   teamMemberId,
   name,
   roleEn,
+  cardColor,
   rolePt,
   cardImage,
   className,
-  teamMemberIndex,
   cardSize,
 } = Astro.props;
-
-const { cardBackground } =
-  TEAM_MEMBER_BACKGROUNDS_COLORS[
-    teamMemberIndex % TEAM_MEMBER_BACKGROUNDS_COLORS.length
-  ];
 
 const cardSizeClassname = getSizeClass(cardSize);
 const translatePath = useTranslatedPath(lang);
 ---
 
 <a
+  style=`background-color:${cardColor}`
   class={cn(
     "block transition-colors ease-in-out duration-300 h-[26rem] p-4 relative group",
-    cardBackground,
     cardSizeClassname,
     className,
   )}
