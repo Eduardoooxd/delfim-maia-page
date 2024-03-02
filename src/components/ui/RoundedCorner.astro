@@ -3,12 +3,14 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   className?: string;
+  style?: string;
 }
 
-const { className } = Astro.props;
+const { className, style } = Astro.props;
 ---
 
 <svg
+  style={style}
   class={cn(className)}
   preserveAspectRatio="none"
   viewBox="0 0 1474 817"

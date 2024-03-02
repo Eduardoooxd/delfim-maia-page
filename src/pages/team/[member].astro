@@ -11,8 +11,8 @@ export async function getStaticPaths() {
   const isProduction = import.meta.env.PROD;
 
   if (isProduction) {
-    // Force the delay of request to CMS to wait 30 seconds because CMS takes some seconds to refresh data.
-    await delay(10000);
+    // Force the delay of request to CMS to wait 45 seconds because CMS takes some seconds to refresh data.
+    await delay(45000);
   }
 
   const { results } = await fetch(
@@ -31,10 +31,17 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const teamMemberIndex: number = Astro.props.teamMemberIndex;
 const teamMember: TeamMember = Astro.props.teamMember;
-const { name, email, image, cpPt, formationsPt, preferencesAreaPt, rolePt } =
-  teamMember;
+const {
+  name,
+  email,
+  image,
+  cpPt,
+  formationsPt,
+  pageColor,
+  preferencesAreaPt,
+  rolePt,
+} = teamMember;
 
 const formations:
   | {
@@ -58,10 +65,10 @@ const preferencesArea:
     name={name}
     email={email}
     image={image}
+    pageColor={pageColor}
     cp={cpPt}
     formations={formations}
     preferencesArea={preferencesArea}
     role={rolePt}
-    teamMemberIndex={teamMemberIndex}
   />
 </Layout>
