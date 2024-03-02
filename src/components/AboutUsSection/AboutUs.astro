@@ -5,14 +5,17 @@ import { Image } from "astro:assets";
 
 const lang = getLangFromUrl(Astro.url);
 const translationContent = useTranslations(lang);
-const { title, valuesTitle, historyText, valuesText } =
-  translationContent.aboutUs;
+const {
+  title,
+  valuesTitle,
+  historyText,
+  valuesText,
+  activityTitle,
+  activityText,
+} = translationContent.aboutUs;
 ---
 
-<section
-  id="history"
-  class="w-full min-h-d-screen p-4 lg:pl-20 lg:pr-0 lg:py-20"
->
+<section id="history" class="w-full p-4 lg:pl-20 lg:pr-0 lg:py-20">
   <div
     class="border-l-[3px] border-delfim-primary flex flex-col sm:flex-row gap-2 sm:gap-6"
   >
@@ -34,6 +37,17 @@ const { title, valuesTitle, historyText, valuesText } =
         <div class="flex flex-col gap-1 2xl:gap-2">
           {
             valuesText.map((text) => (
+              <p class="text-base 2xl:text-lg">{text}</p>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1 2xl:gap-2">
+        <h6 class="uppercase text-lg font-bold">{activityTitle}</h6>
+        <div class="flex flex-col gap-1 2xl:gap-2">
+          {
+            activityText.map((text) => (
               <p class="text-base 2xl:text-lg">{text}</p>
             ))
           }
